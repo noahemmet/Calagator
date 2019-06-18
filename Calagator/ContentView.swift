@@ -13,11 +13,11 @@ struct ContentView : View {
  
     var body: some View {
         TabbedView(selection: $selection){
-            Text("First View")
+            Text("Events")
                 .font(.title)
                 .tabItemLabel(Image("first"))
                 .tag(0)
-            Text("Second View")
+            Text("Venues")
                 .font(.title)
                 .tabItemLabel(Image("second"))
                 .tag(1)
