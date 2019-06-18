@@ -8,7 +8,7 @@ public class EventFetcher: BindableObject {
 	
 	public var didChange = PassthroughSubject<EventFetcher, Never>()
 	
-	public var state: ViewState<[Event]> = .loading {
+	public var state: ViewState<[EventsByDay]> = .loading {
 		didSet {
 			DispatchQueue.main.async { [weak self] in
 				guard let self = self else { return }
@@ -24,7 +24,8 @@ public class EventFetcher: BindableObject {
 			case .atom(let feed):
 				do {
 					let events = try EventFetcher.events(from: feed.entries ?? [])
-					self.state = .success(events)
+					let eventsByDay = EventsByDay.from(events: events)
+					self.state = .success(eventsByDay)
 				} catch let error {
 					self.state = .failure(error.localizedDescription)
 				}

@@ -10,9 +10,9 @@ struct EventLoadingView : View {
 			return AnyView(
 				Text("Loading…")
 			)
-		case .success(let events):
+		case .success(let eventsByDay):
 			return AnyView(
-				EventsView(events: events)
+				EventsView(allEventsByDay: eventsByDay)
 			)
 		case .failure(let error):
 			return AnyView(

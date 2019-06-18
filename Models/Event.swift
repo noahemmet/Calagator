@@ -4,6 +4,12 @@ import SwiftSoup
 import Common
 
 public struct Event: Codable, Hashable, Identifiable {
+	static let dateFormatter: DateFormatter = {
+		let df = DateFormatter()
+		df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		return df
+	}()
+	
 	public var id: Int
 	public var title: String
 	public var summary: String
@@ -12,10 +18,10 @@ public struct Event: Codable, Hashable, Identifiable {
 	public var venue: Venue?
 	public var venueDetails: String?
 	public var start: Date
-	public var end: Date
+	public var end: Date?
 	public var tags: [Tag]
 
-	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date = .init(), end: Date = .init(), tags: [Tag] = []) {
+	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {
 		self.id = id
 		self.title = title
 		self.summary = summary
@@ -50,6 +56,26 @@ extension Event {
 			venue = nil
 		}
 		
-		self.init(id: id, title: title, summary: summary, eventDescription: nil, links: links, venue: venue, venueDetails: nil, start: .init(), end: .init(), tags: [])
+		/* Example dates:
+			<time class="dtstart dt-start" title="2019-06-17T17:30:00" datetime="2019-06-17T17:30:00">Monday, June 17, 2019 from 5:30</time>–
+			<time class="dtend dt-end" title="2019-06-17T20:30:00" datetime="2019-06-17T20:30:00">8:30pm</time>
+		*/
+		
+		let startString = try doc.select("time")
+			.element(at: 0)
+			.unwrap(orThrow: "No start date found")
+			.attr("datetime")
+		let start = try Event.dateFormatter.date(from: startString)
+			.unwrap(orThrow: "Couldn't resolve start date from \(startString)")
+		let end: Date?
+		if let endString = try doc.select("time")
+			.element(at: 1)?
+			.attr("datetime") {
+			end = try Event.dateFormatter.date(from: endString).unwrap(orThrow: "Couldn't resolve end date from \(endString)")
+		} else {
+			end = nil
+		}
+	
+		self.init(id: id, title: title, summary: summary, eventDescription: nil, links: links, venue: venue, venueDetails: nil, start: start, end: end, tags: [])
 	}
 }
