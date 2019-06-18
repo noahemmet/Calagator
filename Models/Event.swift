@@ -1,6 +1,7 @@
 import SwiftUI
 import FeedKit
 import SwiftSoup
+import Common
 
 public struct Event: Codable, Hashable, Identifiable {
 	public var id: Int
@@ -31,27 +32,24 @@ public struct Event: Codable, Hashable, Identifiable {
 // MARK: - Atom
 
 extension Event {
-	public init?(atomEntry: AtomFeedEntry) {
-		guard
-			let idString = atomEntry.id,
-			let idSlashIndex = idString.firstIndex(of: "/"),
-			let title = atomEntry.title,
-			let summary = atomEntry.summary?.value,
-			let contentHTML = atomEntry.content?.value,
-			let doc = try? SwiftSoup.parse(contentHTML)
-		else {
-			fatalError("bad event entry: \(atomEntry)")
-			return nil
-		}
+	public init(atomEntry: AtomFeedEntry) throws {
+		let idString = try atomEntry.id.unwrap()
+		let idSlashIndex = try idString.firstIndex(of: "/").unwrap()
+		let title = try atomEntry.title.unwrap()
+		let summary = try atomEntry.summary.unwrap().value.unwrap()
+		let contentHTML = try atomEntry.content.unwrap().value.unwrap()
+		let doc = try SwiftSoup.parse(contentHTML)
 		let idIndex = idString.index(after: idSlashIndex)
-		let id = Int(idString.suffix(from: idIndex))
+		let id = Int(idString.suffix(from: idIndex))!
 		let links: [Link] = atomEntry.links?.compactMap { Link(atomLink: $0) } ?? []
 		
+		let venue: Venue?
 		if let location = try? doc.select("div.location").first {
-			let address = try! Address(htmlElement: location)
-			print(address)
+			venue = try? Venue(htmlElement: location)
+		} else {
+			venue = nil
 		}
 		
-		self.init(id: id!, title: title, summary: summary, eventDescription: nil, links: links, venue: nil, venueDetails: nil, start: .init(), end: .init(), tags: [])
+		self.init(id: id, title: title, summary: summary, eventDescription: nil, links: links, venue: venue, venueDetails: nil, start: .init(), end: .init(), tags: [])
 	}
 }

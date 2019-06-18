@@ -22,7 +22,7 @@ public class EventFetcher: BindableObject {
 		parser.parseAsync { result in
 			switch result {
 			case .atom(let feed):
-				let events = feed.entries?.compactMap { Event(atomEntry: $0) } ?? []
+				let events = feed.entries?.compactMap { try? Event(atomEntry: $0) } ?? []
 				self.state = .success(events)
 			case .failure(let error):
 				self.state = .failure(error.localizedDescription)
