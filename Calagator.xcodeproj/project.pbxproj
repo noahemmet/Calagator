@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
+		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
 		86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0279322B8AB3600F06236 /* Assets.xcassets */; };
@@ -20,6 +22,7 @@
 		86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; };
 		86C027DB22B8ADE700F06236 /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0279122B8AB3500F06236 /* MainTabbedView.swift */; };
+		86C027E922B8B00500F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C027E822B8B00500F06236 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C0278F22B8AB3500F06236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 		86C027CD22B8ADE700F06236 /* ViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C027D422B8ADE700F06236 /* ViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsTests.swift; sourceTree = "<group>"; };
 		86C027D622B8ADE700F06236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86C027E822B8B00500F06236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				86C0279122B8AB3500F06236 /* MainTabbedView.swift */,
+				864EAE0722B8B18000903CC5 /* EventsView.swift */,
+				864EAE0922B8B19700903CC5 /* VenuesView.swift */,
+				86C027E822B8B00500F06236 /* Assets.xcassets */,
 				86C027C722B8ADE700F06236 /* Views.h */,
 				86C027C822B8ADE700F06236 /* Info.plist */,
 			);
@@ -407,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C027E922B8B00500F06236 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +460,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
+				864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */,
+				864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

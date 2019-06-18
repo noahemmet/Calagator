@@ -15,13 +15,15 @@ public struct MainTabbedView : View {
  
     public var body: some View {
         TabbedView(selection: $selection){
-            Text("Events")
+            EventsView()
                 .font(.title)
-                .tabItemLabel(Image("first"))
+//                .tabItemLabel(Image("clock", bundle: Bundle(identifier: "com.sticks.Views")))
+				.tabItemLabel(Text("Events"))
                 .tag(0)
-            Text("Venues")
+            VenuesView()
                 .font(.title)
-                .tabItemLabel(Image("second"))
+//                .tabItemLabel(Image("map"))
+				.tabItemLabel(Text("Venues"))
                 .tag(1)
         }
     }
