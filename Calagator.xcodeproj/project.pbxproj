@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		864EAE2222B8B36800903CC5 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 864EAE1222B8B36800903CC5 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		864EAE2522B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
 		864EAE2622B8B36800903CC5 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		864EAE2F22B8B5AB00903CC5 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864EAE2E22B8B5AB00903CC5 /* FeedKit */; };
+		864EAE3122B8B70400903CC5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3022B8B70400903CC5 /* Event.swift */; };
+		864EAE3322B8B78000903CC5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3222B8B78000903CC5 /* Tag.swift */; };
+		864EAE3522B8B85E00903CC5 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3422B8B85E00903CC5 /* Address.swift */; };
+		864EAE3722B8B90800903CC5 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3622B8B90800903CC5 /* Venue.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
 		86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0279322B8AB3600F06236 /* Assets.xcassets */; };
@@ -113,6 +118,10 @@
 		864EAE1822B8B36800903CC5 /* ModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		864EAE1F22B8B36800903CC5 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		864EAE2122B8B36800903CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		864EAE3022B8B70400903CC5 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		864EAE3222B8B78000903CC5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		864EAE3422B8B85E00903CC5 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		864EAE3622B8B90800903CC5 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C0278F22B8AB3500F06236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864EAE2F22B8B5AB00903CC5 /* FeedKit in Frameworks */,
 				864EAE2522B8B36800903CC5 /* Models.framework in Frameworks */,
 				86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */,
 			);
@@ -198,6 +208,10 @@
 			children = (
 				864EAE1222B8B36800903CC5 /* Models.h */,
 				864EAE1322B8B36800903CC5 /* Info.plist */,
+				864EAE3022B8B70400903CC5 /* Event.swift */,
+				864EAE3222B8B78000903CC5 /* Tag.swift */,
+				864EAE3422B8B85E00903CC5 /* Address.swift */,
+				864EAE3622B8B90800903CC5 /* Venue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -375,6 +389,9 @@
 				864EAE2422B8B36800903CC5 /* PBXTargetDependency */,
 			);
 			name = Calagator;
+			packageProductDependencies = (
+				864EAE2E22B8B5AB00903CC5 /* FeedKit */,
+			);
 			productName = Calagator;
 			productReference = 86C0278A22B8AB3500F06236 /* Calagator.app */;
 			productType = "com.apple.product-type.application";
@@ -464,6 +481,7 @@
 				TargetAttributes = {
 					864EAE0F22B8B36800903CC5 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					864EAE1722B8B36800903CC5 = {
 						CreatedOnToolsVersion = 11.0;
@@ -498,6 +516,9 @@
 				Base,
 			);
 			mainGroup = 86C0278122B8AB3400F06236;
+			packageReferences = (
+				864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */,
+			);
 			productRefGroup = 86C0278B22B8AB3500F06236 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -574,6 +595,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864EAE3522B8B85E00903CC5 /* Address.swift in Sources */,
+				864EAE3722B8B90800903CC5 /* Venue.swift in Sources */,
+				864EAE3322B8B78000903CC5 /* Tag.swift in Sources */,
+				864EAE3122B8B70400903CC5 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +713,7 @@
 		864EAE2822B8B36800903CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -704,6 +730,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sticks.Models;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -714,6 +741,7 @@
 		864EAE2922B8B36800903CC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1177,6 +1205,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		864EAE2E22B8B5AB00903CC5 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86C0278222B8AB3400F06236 /* Project object */;
 }

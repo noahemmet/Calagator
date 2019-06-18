@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import FeedKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		let feedURL = URL(string: "http://calagator.org/events.atom")!
+		let parser = FeedParser(URL: feedURL)
+		parser.parseAsync { result in
+			print(result)
+		}
+		
+		
+		
 		return true
 	}
 
