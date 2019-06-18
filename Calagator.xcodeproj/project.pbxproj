@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		864A2F8222B8C2B30024B2CD /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 864A2F8122B8C2B20024B2CD /* Data */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -19,6 +20,11 @@
 		864EAE3322B8B78000903CC5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3222B8B78000903CC5 /* Tag.swift */; };
 		864EAE3522B8B85E00903CC5 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3422B8B85E00903CC5 /* Address.swift */; };
 		864EAE3722B8B90800903CC5 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3622B8B90800903CC5 /* Venue.swift */; };
+		864EAE3922B8BBCB00903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
+		864EAE3A22B8BBCB00903CC5 /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		864EAE3F22B8BBFB00903CC5 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3E22B8BBFB00903CC5 /* EventRow.swift */; };
+		864EAE4122B8BDE300903CC5 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4022B8BDE300903CC5 /* Link.swift */; };
+		864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
 		86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0279322B8AB3600F06236 /* Assets.xcassets */; };
@@ -51,6 +57,13 @@
 			remoteInfo = Calagator;
 		};
 		864EAE2322B8B36800903CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86C0278222B8AB3400F06236 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 864EAE0F22B8B36800903CC5;
+			remoteInfo = Models;
+		};
+		864EAE3B22B8BBCB00903CC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 86C0278222B8AB3400F06236 /* Project object */;
 			proxyType = 1;
@@ -95,6 +108,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		864EAE3D22B8BBCB00903CC5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				864EAE3A22B8BBCB00903CC5 /* Models.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		86C027DC22B8ADE700F06236 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -110,6 +134,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		864A2F8122B8C2B20024B2CD /* Data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data; sourceTree = SOURCE_ROOT; };
 		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		864EAE1022B8B36800903CC5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +147,9 @@
 		864EAE3222B8B78000903CC5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		864EAE3422B8B85E00903CC5 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		864EAE3622B8B90800903CC5 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		864EAE3E22B8BBFB00903CC5 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
+		864EAE4022B8BDE300903CC5 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C0278F22B8AB3500F06236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864EAE3922B8BBCB00903CC5 /* Models.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +239,7 @@
 				864EAE1322B8B36800903CC5 /* Info.plist */,
 				864EAE3022B8B70400903CC5 /* Event.swift */,
 				864EAE3222B8B78000903CC5 /* Tag.swift */,
+				864EAE4022B8BDE300903CC5 /* Link.swift */,
 				864EAE3422B8B85E00903CC5 /* Address.swift */,
 				864EAE3622B8B90800903CC5 /* Venue.swift */,
 			);
@@ -225,6 +255,13 @@
 			path = ModelsTests;
 			sourceTree = "<group>";
 		};
+		864EAE3822B8BBCB00903CC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		86C0278122B8AB3400F06236 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +273,7 @@
 				864EAE1122B8B36800903CC5 /* Models */,
 				864EAE1E22B8B36800903CC5 /* ModelsTests */,
 				86C0278B22B8AB3500F06236 /* Products */,
+				864EAE3822B8BBCB00903CC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,6 +299,7 @@
 				86C0279322B8AB3600F06236 /* Assets.xcassets */,
 				86C0279822B8AB3600F06236 /* LaunchScreen.storyboard */,
 				86C0279B22B8AB3600F06236 /* Info.plist */,
+				864A2F8122B8C2B20024B2CD /* Data */,
 				86C0279522B8AB3600F06236 /* Preview Content */,
 			);
 			path = Calagator;
@@ -297,6 +336,8 @@
 			children = (
 				86C0279122B8AB3500F06236 /* MainTabbedView.swift */,
 				864EAE0722B8B18000903CC5 /* EventsView.swift */,
+				864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */,
+				864EAE3E22B8BBFB00903CC5 /* EventRow.swift */,
 				864EAE0922B8B19700903CC5 /* VenuesView.swift */,
 				86C027E822B8B00500F06236 /* Assets.xcassets */,
 				86C027C722B8ADE700F06236 /* Views.h */,
@@ -440,10 +481,12 @@
 				86C027C122B8ADE700F06236 /* Sources */,
 				86C027C222B8ADE700F06236 /* Frameworks */,
 				86C027C322B8ADE700F06236 /* Resources */,
+				864EAE3D22B8BBCB00903CC5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				864EAE3C22B8BBCB00903CC5 /* PBXTargetDependency */,
 			);
 			name = Views;
 			productName = Views;
@@ -555,6 +598,7 @@
 			files = (
 				86C0279A22B8AB3600F06236 /* LaunchScreen.storyboard in Resources */,
 				86C0279722B8AB3600F06236 /* Preview Assets.xcassets in Resources */,
+				864A2F8222B8C2B30024B2CD /* Data in Resources */,
 				86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +643,7 @@
 				864EAE3722B8B90800903CC5 /* Venue.swift in Sources */,
 				864EAE3322B8B78000903CC5 /* Tag.swift in Sources */,
 				864EAE3122B8B70400903CC5 /* Event.swift in Sources */,
+				864EAE4122B8BDE300903CC5 /* Link.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,8 +685,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
+				864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */,
 				864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */,
 				864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */,
+				864EAE3F22B8BBFB00903CC5 /* EventRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +717,11 @@
 			isa = PBXTargetDependency;
 			target = 864EAE0F22B8B36800903CC5 /* Models */;
 			targetProxy = 864EAE2322B8B36800903CC5 /* PBXContainerItemProxy */;
+		};
+		864EAE3C22B8BBCB00903CC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 864EAE0F22B8B36800903CC5 /* Models */;
+			targetProxy = 864EAE3B22B8BBCB00903CC5 /* PBXContainerItemProxy */;
 		};
 		86C027A222B8AB3600F06236 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

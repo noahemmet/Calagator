@@ -1,26 +1,25 @@
-//
-//  EventsView.swift
-//  Views
-//
-//  Created by Noah Emmet on 6/17/19.
-//  Copyright © 2019 Noah Emmet. All rights reserved.
-//
-
 import SwiftUI
+import Models
 
-struct EventsView : View {
-	var body: some View {
+public struct EventsView : View {
+	public var events: [Event]
+	
+	public var body: some View {
 		NavigationView {
-			Text("Hello World!")
+			List(events.identified(by: \.id)) { event in
+				NavigationButton(destination: EventDetailView(event: event), isDetail: true) {
+					EventRow(event: event)
+				}
+				}
+				.navigationBarTitle(Text("Events"))
 		}
-		.navigationBarTitle(Text("Events"))
 	}
 }
 
 #if DEBUG
 struct EventsView_Previews : PreviewProvider {
 	static var previews: some View {
-		EventsView()
+		EventsView(events: [])
 	}
 }
 #endif
