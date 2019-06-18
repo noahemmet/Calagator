@@ -25,6 +25,7 @@
 		864A2FBC22B8DEF60024B2CD /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		864A2FC022B8DF060024B2CD /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FBF22B8DF060024B2CD /* Optional+Extensions.swift */; };
 		864A2FC222B8DF150024B2CD /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC122B8DF150024B2CD /* Error+Extensions.swift */; };
+		864A2FC422B8E4750024B2CD /* DayEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC322B8E4750024B2CD /* DayEvents.swift */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -211,6 +212,7 @@
 		864A2FAA22B8DEEB0024B2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		864A2FBF22B8DF060024B2CD /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		864A2FC122B8DF150024B2CD /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		864A2FC322B8E4750024B2CD /* DayEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEvents.swift; sourceTree = "<group>"; };
 		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		864EAE1022B8B36800903CC5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +379,7 @@
 				864EAE1222B8B36800903CC5 /* Models.h */,
 				864EAE1322B8B36800903CC5 /* Info.plist */,
 				864EAE3022B8B70400903CC5 /* Event.swift */,
+				864A2FC322B8E4750024B2CD /* DayEvents.swift */,
 				864EAE3222B8B78000903CC5 /* Tag.swift */,
 				864EAE4022B8BDE300903CC5 /* Link.swift */,
 				864EAE3422B8B85E00903CC5 /* Address.swift */,
@@ -882,6 +885,7 @@
 				864EAE3322B8B78000903CC5 /* Tag.swift in Sources */,
 				864EAE3122B8B70400903CC5 /* Event.swift in Sources */,
 				864EAE4122B8BDE300903CC5 /* Link.swift in Sources */,
+				864A2FC422B8E4750024B2CD /* DayEvents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,13 +22,22 @@ public class EventFetcher: BindableObject {
 		parser.parseAsync { result in
 			switch result {
 			case .atom(let feed):
-				let events = feed.entries?.compactMap { try? Event(atomEntry: $0) } ?? []
-				self.state = .success(events)
+				do {
+					let events = try EventFetcher.events(from: feed.entries ?? [])
+					self.state = .success(events)
+				} catch let error {
+					self.state = .failure(error.localizedDescription)
+				}
 			case .failure(let error):
 				self.state = .failure(error.localizedDescription)
 			default:
 				self.state = .failure("Unrecognized data")
 			}
 		}
+	}
+	
+	static func events(from atomEntries: [AtomFeedEntry]) throws -> [Event] {
+		let events = try atomEntries.compactMap { try Event(atomEntry: $0) }
+		return events
 	}
 }

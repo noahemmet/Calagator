@@ -228,5 +228,117 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8503961-3D71-44DD-95CF-EB009259F5FA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Views/Views/MainTabbedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "897AE883-10E3-40C3-A563-469F357D787E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Views/Fetchers/EventFetcher.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "897AE883-10E3-40C3-A563-469F357D787E - 3efd032626447f6e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Views.EventFetcher.init() -&gt; Views.EventFetcher"
+                  moduleName = "Views"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmet/Documents/Projects/Calagator/Views/Fetchers/EventFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "411">
+               </Location>
+               <Location
+                  uuid = "897AE883-10E3-40C3-A563-469F357D787E - 953c3f29ec9f30b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FeedKit.Result) -&gt; () in Views.EventFetcher.init() -&gt; Views.EventFetcher"
+                  moduleName = "Views"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmet/Documents/Projects/Calagator/Views/Fetchers/EventFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "125C50C5-F404-4A4D-9548-046087331BF4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Views/Fetchers/EventFetcher.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "state"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "125C50C5-F404-4A4D-9548-046087331BF4 - 2f510ec1aa4ee63c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Views.EventFetcher.state.didset : Views.ViewState&lt;Swift.Array&lt;Models.Event&gt;&gt;"
+                  moduleName = "Views"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmet/Documents/Projects/Calagator/Views/Fetchers/EventFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "198">
+               </Location>
+               <Location
+                  uuid = "125C50C5-F404-4A4D-9548-046087331BF4 - 7bae1b322df7b996"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Views.EventFetcher.state.didset : Views.ViewState&lt;Swift.Array&lt;Models.Event&gt;&gt;"
+                  moduleName = "Views"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmet/Documents/Projects/Calagator/Views/Fetchers/EventFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "73">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
