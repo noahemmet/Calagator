@@ -8,6 +8,10 @@ public struct Address: Codable, Hashable {
 	public var postalCode: String
 	public var country: String
 	public var googleMapsURL: URL?
+	
+	public var shortDisplay: String {
+		return street + "\n" + locality + ", " + region + " " + postalCode
+	}
 
 	public init(street: String, locality: String, region: String, postalCode: String, country: String, googleMapsURL: URL?) {
 		self.street = street
@@ -38,9 +42,9 @@ public struct Address: Codable, Hashable {
 		*/
 		
 		let street = try addressElement.select("div.street-address").text()
-		let locality = try addressElement.select("div.locality").text()
-		let region = try addressElement.select("div.region").text()
-		let postalCode = try addressElement.select("div.postal-code").text()
+		let locality = try addressElement.select("span.locality").text()
+		let region = try addressElement.select("span.region").text()
+		let postalCode = try addressElement.select("span.postal-code").text()
 		let country = try addressElement.select("div.country-name").text()
 		let googleMapsURL: URL?
 		if let googleMapsString = try addressElement.select("a[href*=maps.google]").first()?.attr("href") {

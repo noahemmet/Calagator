@@ -20,7 +20,7 @@ public struct Event: Codable, Hashable, Identifiable {
 	public var id: Int
 	public var title: String
 	public var summary: String
-	public var eventDescription: String?
+	public var eventHTML: String?
 	public var links: [Link]
 	public var venue: Venue?
 	public var venueDetails: String?
@@ -35,11 +35,11 @@ public struct Event: Codable, Hashable, Identifiable {
 	}
 	public var tags: [Tag]
 
-	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {
+	public init(id: Int, title: String, summary: String, eventHTML: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {
 		self.id = id
 		self.title = title
 		self.summary = summary
-		self.eventDescription = eventDescription
+		self.eventHTML = eventHTML
 		self.links = links
 		self.venue = venue
 		self.venueDetails = venueDetails
@@ -89,7 +89,11 @@ extension Event {
 		} else {
 			end = nil
 		}
-	
-		self.init(id: id, title: title, summary: summary, eventDescription: nil, links: links, venue: venue, venueDetails: nil, start: start, end: end, tags: [])
+		
+		let description = try doc.select("div.description")
+		// This crashes on an empty string.
+		let eventHTML = description.isEmpty() ? nil : try description.html()
+
+		self.init(id: id, title: title, summary: summary, eventHTML: eventHTML, links: links, venue: venue, venueDetails: nil, start: start, end: end, tags: [])
 	}
 }

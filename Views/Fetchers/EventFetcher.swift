@@ -10,6 +10,9 @@ public class EventFetcher: BindableObject {
 	
 	public var state: ViewState<[EventsByDay]> = .loading {
 		didSet {
+//			if case .success = oldValue {
+//				return
+//			}
 			DispatchQueue.main.async { [weak self] in
 				guard let self = self else { return }
 				self.didChange.send(self)

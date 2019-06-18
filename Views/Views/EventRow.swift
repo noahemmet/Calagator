@@ -23,6 +23,7 @@ public struct EventRow : View {
 				// Title
 				Text(event.title)
 					.font(.body)
+					.color(.primary)
 				// Summary
 				Text(event.venue?.name ?? event.summary)
 					.font(.footnote)

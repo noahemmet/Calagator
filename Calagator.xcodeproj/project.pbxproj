@@ -29,6 +29,7 @@
 		864A2FC622B8ED700024B2CD /* RandomAccessCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */; };
 		864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC822B8F7760024B2CD /* AddEventView.swift */; };
 		864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FCB22B8F8910024B2CD /* SafariView.swift */; };
+		864A2FCE22B909190024B2CD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FCD22B909190024B2CD /* MapView.swift */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -219,6 +220,7 @@
 		864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+Extensions.swift"; sourceTree = "<group>"; };
 		864A2FC822B8F7760024B2CD /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		864A2FCB22B8F8910024B2CD /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		864A2FCD22B909190024B2CD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		864EAE1022B8B36800903CC5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				864A2FCB22B8F8910024B2CD /* SafariView.swift */,
+				864A2FCD22B909190024B2CD /* MapView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				864A2F8622B8C5E10024B2CD /* EventFetcher.swift in Sources */,
 				864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */,
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
+				864A2FCE22B909190024B2CD /* MapView.swift in Sources */,
 				864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */,
 				864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */,
 				864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */,
