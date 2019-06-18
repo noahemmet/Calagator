@@ -13,6 +13,7 @@
 		864A2F8C22B8C7F70024B2CD /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864A2F8B22B8C7F70024B2CD /* FeedKit */; };
 		864A2F8E22B8C90F0024B2CD /* EventLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2F8D22B8C90F0024B2CD /* EventLoadingView.swift */; };
 		864A2F9022B8CD8E0024B2CD /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864A2F8F22B8CD8E0024B2CD /* FeedKit */; };
+		864A2F9322B8D4E70024B2CD /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 864A2F9222B8D4E70024B2CD /* SwiftSoup */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -187,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864A2F9022B8CD8E0024B2CD /* FeedKit in Frameworks */,
+				864A2F9322B8D4E70024B2CD /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +424,7 @@
 			name = Models;
 			packageProductDependencies = (
 				864A2F8F22B8CD8E0024B2CD /* FeedKit */,
+				864A2F9222B8D4E70024B2CD /* SwiftSoup */,
 			);
 			productName = Models;
 			productReference = 864EAE1022B8B36800903CC5 /* Models.framework */;
@@ -596,6 +599,7 @@
 			mainGroup = 86C0278122B8AB3400F06236;
 			packageReferences = (
 				864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */,
+				864A2F9122B8D4E70024B2CD /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 86C0278B22B8AB3500F06236 /* Products */;
 			projectDirPath = "";
@@ -1299,6 +1303,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		864A2F9122B8D4E70024B2CD /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nmdias/FeedKit";
@@ -1319,6 +1331,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = FeedKit;
+		};
+		864A2F9222B8D4E70024B2CD /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 864A2F9122B8D4E70024B2CD /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 		864EAE2E22B8B5AB00903CC5 /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,5 +1,6 @@
 import SwiftUI
 import FeedKit
+import SwiftSoup
 
 public struct Event: Codable, Hashable, Identifiable {
 	public var id: Int
@@ -25,19 +26,32 @@ public struct Event: Codable, Hashable, Identifiable {
 		self.end = end
 		self.tags = tags
 	}
-	
+}
+
+// MARK: - Atom
+
+extension Event {
 	public init?(atomEntry: AtomFeedEntry) {
 		guard
 			let idString = atomEntry.id,
 			let idSlashIndex = idString.firstIndex(of: "/"),
 			let title = atomEntry.title,
-			let summary = atomEntry.summary?.value
+			let summary = atomEntry.summary?.value,
+			let contentHTML = atomEntry.content?.value,
+			let doc = try? SwiftSoup.parse(contentHTML)
 		else {
+			fatalError("bad event entry: \(atomEntry)")
 			return nil
 		}
 		let idIndex = idString.index(after: idSlashIndex)
 		let id = Int(idString.suffix(from: idIndex))
 		let links: [Link] = atomEntry.links?.compactMap { Link(atomLink: $0) } ?? []
+		
+		if let location = try? doc.select("div.location").first {
+			let address = try! Address(htmlElement: location)
+			print(address)
+		}
+		
 		self.init(id: id!, title: title, summary: summary, eventDescription: nil, links: links, venue: nil, venueDetails: nil, start: .init(), end: .init(), tags: [])
 	}
 }
