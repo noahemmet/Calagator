@@ -23,7 +23,7 @@ public struct MainTabbedView : View {
  
     public var body: some View {
         TabbedView(selection: $selection){
-            EventsView(events: eventData)
+            EventLoadingView()
                 .font(.title)
 //                .tabItemLabel(Image("clock", bundle: Bundle(identifier: "com.sticks.Views")))
 				.tabItemLabel(Text("Events"))

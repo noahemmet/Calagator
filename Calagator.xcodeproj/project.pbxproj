@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		864A2F8222B8C2B30024B2CD /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 864A2F8122B8C2B20024B2CD /* Data */; };
+		864A2F8622B8C5E10024B2CD /* EventFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2F8522B8C5E10024B2CD /* EventFetcher.swift */; };
+		864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2F8722B8C6AA0024B2CD /* ViewState.swift */; };
+		864A2F8C22B8C7F70024B2CD /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864A2F8B22B8C7F70024B2CD /* FeedKit */; };
+		864A2F8E22B8C90F0024B2CD /* EventLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2F8D22B8C90F0024B2CD /* EventLoadingView.swift */; };
+		864A2F9022B8CD8E0024B2CD /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864A2F8F22B8CD8E0024B2CD /* FeedKit */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -135,6 +140,9 @@
 
 /* Begin PBXFileReference section */
 		864A2F8122B8C2B20024B2CD /* Data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data; sourceTree = SOURCE_ROOT; };
+		864A2F8522B8C5E10024B2CD /* EventFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFetcher.swift; sourceTree = "<group>"; };
+		864A2F8722B8C6AA0024B2CD /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		864A2F8D22B8C90F0024B2CD /* EventLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLoadingView.swift; sourceTree = "<group>"; };
 		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		864EAE1022B8B36800903CC5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864A2F9022B8CD8E0024B2CD /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864EAE3922B8BBCB00903CC5 /* Models.framework in Frameworks */,
+				864A2F8C22B8C7F70024B2CD /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +242,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		864A2F8322B8C5B00024B2CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86C0279122B8AB3500F06236 /* MainTabbedView.swift */,
+				864A2F8D22B8C90F0024B2CD /* EventLoadingView.swift */,
+				864EAE0722B8B18000903CC5 /* EventsView.swift */,
+				864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */,
+				864EAE3E22B8BBFB00903CC5 /* EventRow.swift */,
+				864EAE0922B8B19700903CC5 /* VenuesView.swift */,
+				864A2F8722B8C6AA0024B2CD /* ViewState.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		864A2F8422B8C5B70024B2CD /* Fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				864A2F8522B8C5E10024B2CD /* EventFetcher.swift */,
+			);
+			path = Fetchers;
+			sourceTree = "<group>";
+		};
 		864EAE1122B8B36800903CC5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,11 +366,8 @@
 		86C027C622B8ADE700F06236 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				86C0279122B8AB3500F06236 /* MainTabbedView.swift */,
-				864EAE0722B8B18000903CC5 /* EventsView.swift */,
-				864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */,
-				864EAE3E22B8BBFB00903CC5 /* EventRow.swift */,
-				864EAE0922B8B19700903CC5 /* VenuesView.swift */,
+				864A2F8422B8C5B70024B2CD /* Fetchers */,
+				864A2F8322B8C5B00024B2CD /* Views */,
 				86C027E822B8B00500F06236 /* Assets.xcassets */,
 				86C027C722B8ADE700F06236 /* Views.h */,
 				86C027C822B8ADE700F06236 /* Info.plist */,
@@ -391,6 +420,9 @@
 			dependencies = (
 			);
 			name = Models;
+			packageProductDependencies = (
+				864A2F8F22B8CD8E0024B2CD /* FeedKit */,
+			);
 			productName = Models;
 			productReference = 864EAE1022B8B36800903CC5 /* Models.framework */;
 			productType = "com.apple.product-type.framework";
@@ -489,6 +521,9 @@
 				864EAE3C22B8BBCB00903CC5 /* PBXTargetDependency */,
 			);
 			name = Views;
+			packageProductDependencies = (
+				864A2F8B22B8C7F70024B2CD /* FeedKit */,
+			);
 			productName = Views;
 			productReference = 86C027C522B8ADE700F06236 /* Views.framework */;
 			productType = "com.apple.product-type.framework";
@@ -684,8 +719,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864A2F8622B8C5E10024B2CD /* EventFetcher.swift in Sources */,
+				864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */,
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
 				864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */,
+				864A2F8E22B8C90F0024B2CD /* EventLoadingView.swift in Sources */,
 				864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */,
 				864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */,
 				864EAE3F22B8BBFB00903CC5 /* EventRow.swift in Sources */,
@@ -1270,6 +1308,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		864A2F8B22B8C7F70024B2CD /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		864A2F8F22B8CD8E0024B2CD /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
 		864EAE2E22B8B5AB00903CC5 /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */;

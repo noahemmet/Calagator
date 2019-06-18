@@ -1,4 +1,5 @@
 import SwiftUI
+import FeedKit
 
 public struct Event: Codable, Hashable, Identifiable {
 	public var id: Int
@@ -23,5 +24,20 @@ public struct Event: Codable, Hashable, Identifiable {
 		self.start = start
 		self.end = end
 		self.tags = tags
+	}
+	
+	public init?(atomEntry: AtomFeedEntry) {
+		guard
+			let idString = atomEntry.id,
+			let idSlashIndex = idString.firstIndex(of: "/"),
+			let title = atomEntry.title,
+			let summary = atomEntry.summary?.value
+		else {
+			return nil
+		}
+		let idIndex = idString.index(after: idSlashIndex)
+		let id = Int(idString.suffix(from: idIndex))
+		let links: [Link] = atomEntry.links?.compactMap { Link(atomLink: $0) } ?? []
+		self.init(id: id!, title: title, summary: summary, eventDescription: nil, links: links, venue: nil, venueDetails: nil, start: .init(), end: .init(), tags: [])
 	}
 }

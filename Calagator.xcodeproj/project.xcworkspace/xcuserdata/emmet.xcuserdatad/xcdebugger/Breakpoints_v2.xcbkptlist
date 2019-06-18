@@ -36,5 +36,85 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18D6B9D8-5826-40CA-8E76-11CF43153235"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Views/Fetchers/EventFetcher.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49E01717-7F87-424D-B4DA-5451CABE94D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Models/Event.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "init(atomEntry:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D227B881-92FC-4B2E-999A-8F42C5355E66"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Models/Event.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "init(atomEntry:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D227B881-92FC-4B2E-999A-8F42C5355E66 - f49692f63c3465b9"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Models.Event.init(atomEntry: FeedKit.AtomFeedEntry) -&gt; Swift.Optional&lt;Models.Event&gt;"
+                  moduleName = "Models"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmet/Documents/Projects/Calagator/Models/Event.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "1560">
+               </Location>
+               <Location
+                  uuid = "D227B881-92FC-4B2E-999A-8F42C5355E66 - 3a2e6a87f572c5b6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FeedKit.AtomFeedEntryLink) -&gt; Swift.Optional&lt;Models.Link&gt; in Models.Event.init(atomEntry: FeedKit.AtomFeedEntry) -&gt; Swift.Optional&lt;Models.Event&gt;"
+                  moduleName = "Models"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmet/Documents/Projects/Calagator/Models/Event.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
