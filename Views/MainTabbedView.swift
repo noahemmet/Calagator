@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainTabbedView.swift
 //  Calagator
 //
 //  Created by Noah Emmet on 6/17/19.
@@ -8,10 +8,12 @@
 
 import SwiftUI
 
-struct ContentView : View {
+public struct MainTabbedView : View {
+	public init() { }
+	
     @State private var selection = 0
  
-    var body: some View {
+    public var body: some View {
         TabbedView(selection: $selection){
             Text("Events")
                 .font(.title)
@@ -26,9 +28,9 @@ struct ContentView : View {
 }
 
 #if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct MainTabbedView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainTabbedView()
     }
 }
 #endif
