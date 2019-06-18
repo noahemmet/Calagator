@@ -8,7 +8,10 @@ public struct EventRow : View {
 	public var body: some View {
 		VStack(alignment: .leading) {
 			Text(event.title)
+				.font(.body)
 			Text(event.summary)
+				.font(.footnote)
+				.color(.secondary)
 		}
 	}
 }
