@@ -27,6 +27,8 @@
 		864A2FC222B8DF150024B2CD /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC122B8DF150024B2CD /* Error+Extensions.swift */; };
 		864A2FC422B8E4750024B2CD /* DayEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC322B8E4750024B2CD /* DayEvents.swift */; };
 		864A2FC622B8ED700024B2CD /* RandomAccessCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */; };
+		864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC822B8F7760024B2CD /* AddEventView.swift */; };
+		864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FCB22B8F8910024B2CD /* SafariView.swift */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -215,6 +217,8 @@
 		864A2FC122B8DF150024B2CD /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		864A2FC322B8E4750024B2CD /* DayEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEvents.swift; sourceTree = "<group>"; };
 		864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+Extensions.swift"; sourceTree = "<group>"; };
+		864A2FC822B8F7760024B2CD /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		864A2FCB22B8F8910024B2CD /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		864EAE1022B8B36800903CC5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +343,7 @@
 				86C0279122B8AB3500F06236 /* MainTabbedView.swift */,
 				864A2F8D22B8C90F0024B2CD /* EventLoadingView.swift */,
 				864EAE0722B8B18000903CC5 /* EventsView.swift */,
+				864A2FC822B8F7760024B2CD /* AddEventView.swift */,
 				864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */,
 				864EAE3E22B8BBFB00903CC5 /* EventRow.swift */,
 				864EAE0922B8B19700903CC5 /* VenuesView.swift */,
@@ -382,6 +387,14 @@
 				864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */,
 			);
 			path = "Foundation Extensions";
+			sourceTree = "<group>";
+		};
+		864A2FCA22B8F8830024B2CD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				864A2FCB22B8F8910024B2CD /* SafariView.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		864EAE1122B8B36800903CC5 /* Models */ = {
@@ -492,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				864A2F8422B8C5B70024B2CD /* Fetchers */,
+				864A2FCA22B8F8830024B2CD /* UIKit */,
 				864A2F8322B8C5B00024B2CD /* Views */,
 				86C027E822B8B00500F06236 /* Assets.xcassets */,
 				86C027C722B8ADE700F06236 /* Views.h */,
@@ -942,6 +956,8 @@
 				864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */,
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
 				864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */,
+				864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */,
+				864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */,
 				864A2F8E22B8C90F0024B2CD /* EventLoadingView.swift in Sources */,
 				864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */,
 				864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */,

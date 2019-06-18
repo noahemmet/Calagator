@@ -19,6 +19,10 @@ public struct EventsView : View {
 				}
 				.listStyle(.grouped)
 				.navigationBarTitle(Text("Calagator"))
+				.navigationBarItems(trailing:
+					PresentationButton(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
+						Text("+")
+					})
 		}
 	}
 }
