@@ -15,7 +15,11 @@ public struct Venue: Codable, Hashable {
 	
 	public init(htmlElement element: Element) throws {
 		let location = try element.select("div.location").first.unwrap(orThrow: "No location found")
+		let name = try location.select("span.fn").text()
 		let address = try Address(htmlElement: location)
-		self.init(id: 0, name: "Name", address: address)
+		self.init(id: 0, name: name, address: address)
+		// Element <div class="location vcard">
+//		<a href="/venues/202396329" class="url"> <span class="fn org">New Relic</span> </a>
+
 	}
 }

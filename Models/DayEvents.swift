@@ -6,6 +6,7 @@ public struct EventsByDay: Codable, Hashable, Identifiable {
 	static let dateFormatter: DateFormatter = {
 		let df = DateFormatter()
 		df.dateStyle = .long
+		df.doesRelativeDateFormatting = true
 		return df
 	}()
 	public var id: Date { date }

@@ -8,7 +8,7 @@ public struct EventsView : View {
 		NavigationView {
 			List {
 				ForEach(allEventsByDay) { eventsByDay in
-					Section(header: Text(eventsByDay.dateString)) {
+					Section(header: Text(eventsByDay.dateString).font(.headline)) {
 						ForEach(eventsByDay.events) { event in
 							NavigationButton(destination: EventDetailView(event: event), isDetail: true) {
 								EventRow(event: event)
@@ -18,7 +18,7 @@ public struct EventsView : View {
 				}
 				}
 				.listStyle(.grouped)
-				.navigationBarTitle(Text("Events"))
+				.navigationBarTitle(Text("Calagator"))
 		}
 	}
 }
