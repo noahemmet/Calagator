@@ -6,7 +6,7 @@ public struct EventsView : View {
 	
 	public var body: some View {
 		NavigationView {
-			List(events.identified(by: \.id)) { event in
+			List(events) { event in
 				NavigationButton(destination: EventDetailView(event: event), isDetail: true) {
 					EventRow(event: event)
 				}
