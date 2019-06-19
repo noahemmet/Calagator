@@ -12,12 +12,14 @@ public struct EventDetailView : View {
 			Text(event.summary)
 				.font(.body)
 				.lineLimit(nil)
-			MapView()
-				.frame(height: 240)
-				.cornerRadius(8)
-			Text(event.venue?.address.shortDisplay ?? "")
-				.font(.body)
-				.lineLimit(3)
+			if event.venue?.address != nil {
+				MapView(address: event.venue!.address.fullDisplay)
+					.frame(height: 240)
+					.cornerRadius(8)
+				Text(event.venue!.address.shortDisplay)
+					.font(.body)
+					.lineLimit(3)
+			}
 			//			.relativeWidth(1.0)
 			//			.relativeHeight(2.0)
 			Button(action: {

@@ -1,5 +1,6 @@
 import Foundation
 import SwiftSoup
+import Common
 
 public struct Address: Codable, Hashable {
 	public var street: String
@@ -9,11 +10,18 @@ public struct Address: Codable, Hashable {
 	public var country: String
 	public var googleMapsURL: URL?
 	
+	public var fullDisplay: String {
+		shortDisplay + " " + country
+	}
+	
 	public var shortDisplay: String {
-		return street + "\n" + locality + ", " + region + " " + postalCode
+		street + "\n" + locality + ", " + region + " " + postalCode
 	}
 
-	public init(street: String, locality: String, region: String, postalCode: String, country: String, googleMapsURL: URL?) {
+	public init(street: String, locality: String, region: String, postalCode: String, country: String, googleMapsURL: URL?) throws {
+		guard !street.isEmpty, !locality.isEmpty else {
+			throw BasicError.reason("empty address")
+		}
 		self.street = street
 		self.locality = locality
 		self.region = region
@@ -52,6 +60,6 @@ public struct Address: Codable, Hashable {
 		} else {
 			googleMapsURL = nil
 		}
-		self.init(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: googleMapsURL)
+		try self.init(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: googleMapsURL)
 	}
 }
