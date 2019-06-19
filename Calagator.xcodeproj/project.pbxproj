@@ -47,6 +47,7 @@
 		864EAE3F22B8BBFB00903CC5 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3E22B8BBFB00903CC5 /* EventRow.swift */; };
 		864EAE4122B8BDE300903CC5 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4022B8BDE300903CC5 /* Link.swift */; };
 		864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */; };
+		864F20DA22B9FFDF005FF206 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864F20D922B9FFDF005FF206 /* LabelView.swift */; };
 		86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86611D3F22B9D97900D4D2FD /* CalendarManager.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
@@ -237,6 +238,7 @@
 		864EAE3E22B8BBFB00903CC5 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
 		864EAE4022B8BDE300903CC5 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		864F20D922B9FFDF005FF206 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		86611D3F22B9D97900D4D2FD /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 			children = (
 				864A2FCB22B8F8910024B2CD /* SafariView.swift */,
 				864A2FCD22B909190024B2CD /* MapView.swift */,
+				864F20D922B9FFDF005FF206 /* LabelView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
 				864A2FCE22B909190024B2CD /* MapView.swift in Sources */,
 				864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */,
+				864F20DA22B9FFDF005FF206 /* LabelView.swift in Sources */,
 				864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */,
 				864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */,
 				864A2F8E22B8C90F0024B2CD /* EventLoadingView.swift in Sources */,

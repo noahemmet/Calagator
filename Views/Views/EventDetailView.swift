@@ -17,12 +17,10 @@ public struct EventDetailView : View {
 				MapView(address: event.venue!.address.shortDisplay)
 					.frame(height: 240)
 					.cornerRadius(8)
-				Text(event.venue!.address.shortDisplay)
+				Text(event.venue!.addressDisplay)
 					.font(.body)
 					.lineLimit(3)
 			}
-			//			.relativeWidth(1.0)
-			//			.relativeHeight(2.0)
 			Button(action: {
 				let calendarManager = CalendarManager()
 				if CalendarManager().calendarEvent(for: self.event) == nil {
@@ -45,9 +43,11 @@ public struct EventDetailView : View {
 						.color(.accentColor)
 				}
 			})
-			Text(event.eventHTML ?? "")
-				.font(.body)
-				.lineLimit(nil)
+			try? LabelView(html: event.eventHTML ?? "")
+			.relativeWidth(1)
+//			Text(event.eventHTML ?? "")
+//				.font(.body)
+//				.lineLimit(nil)
 		}
 	}
 }

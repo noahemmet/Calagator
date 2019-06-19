@@ -6,6 +6,10 @@ public struct Venue: Codable, Hashable {
 	public var id: Int
 	public var name: String
 	public var address: Address
+	
+	public var addressDisplay: String {
+		return name + "\n" + address.shortDisplay
+	}
 
 	public init(id: Int, name: String, address: Address) {
 		self.id = id
