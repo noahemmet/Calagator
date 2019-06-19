@@ -30,6 +30,7 @@
 		864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC822B8F7760024B2CD /* AddEventView.swift */; };
 		864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FCB22B8F8910024B2CD /* SafariView.swift */; };
 		864A2FCE22B909190024B2CD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FCD22B909190024B2CD /* MapView.swift */; };
+		864EA4B922BA05800060C301 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EA4B822BA05800060C301 /* NSAttributedString+Extensions.swift */; };
 		864EAE0822B8B18000903CC5 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0722B8B18000903CC5 /* EventsView.swift */; };
 		864EAE0A22B8B19700903CC5 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE0922B8B19700903CC5 /* VenuesView.swift */; };
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
@@ -48,6 +49,8 @@
 		864EAE4122B8BDE300903CC5 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4022B8BDE300903CC5 /* Link.swift */; };
 		864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */; };
 		864F20DA22B9FFDF005FF206 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864F20D922B9FFDF005FF206 /* LabelView.swift */; };
+		864F20DD22BA020E005FF206 /* SwiftRichString in Frameworks */ = {isa = PBXBuildFile; productRef = 864F20DC22BA020E005FF206 /* SwiftRichString */; };
+		864F20DF22BA021C005FF206 /* SwiftRichString in Frameworks */ = {isa = PBXBuildFile; productRef = 864F20DE22BA021C005FF206 /* SwiftRichString */; };
 		86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86611D3F22B9D97900D4D2FD /* CalendarManager.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
@@ -223,6 +226,7 @@
 		864A2FC822B8F7760024B2CD /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		864A2FCB22B8F8910024B2CD /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		864A2FCD22B909190024B2CD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		864EA4B822BA05800060C301 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		864EAE0722B8B18000903CC5 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		864EAE0922B8B19700903CC5 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		864EAE1022B8B36800903CC5 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864EAE2F22B8B5AB00903CC5 /* FeedKit in Frameworks */,
+				864F20DD22BA020E005FF206 /* SwiftRichString in Frameworks */,
 				864A2FAE22B8DEEB0024B2CD /* Common.framework in Frameworks */,
 				864EAE2522B8B36800903CC5 /* Models.framework in Frameworks */,
 				86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */,
@@ -327,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864A2FBB22B8DEF60024B2CD /* Common.framework in Frameworks */,
+				864F20DF22BA021C005FF206 /* SwiftRichString in Frameworks */,
 				864EAE3922B8BBCB00903CC5 /* Models.framework in Frameworks */,
 				864A2F8C22B8C7F70024B2CD /* FeedKit in Frameworks */,
 			);
@@ -392,6 +398,7 @@
 				864A2FBF22B8DF060024B2CD /* Optional+Extensions.swift */,
 				864A2FC122B8DF150024B2CD /* Error+Extensions.swift */,
 				864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */,
+				864EA4B822BA05800060C301 /* NSAttributedString+Extensions.swift */,
 			);
 			path = "Foundation Extensions";
 			sourceTree = "<group>";
@@ -669,6 +676,7 @@
 			name = Calagator;
 			packageProductDependencies = (
 				864EAE2E22B8B5AB00903CC5 /* FeedKit */,
+				864F20DC22BA020E005FF206 /* SwiftRichString */,
 			);
 			productName = Calagator;
 			productReference = 86C0278A22B8AB3500F06236 /* Calagator.app */;
@@ -729,6 +737,7 @@
 			name = Views;
 			packageProductDependencies = (
 				864A2F8B22B8C7F70024B2CD /* FeedKit */,
+				864F20DE22BA021C005FF206 /* SwiftRichString */,
 			);
 			productName = Views;
 			productReference = 86C027C522B8ADE700F06236 /* Views.framework */;
@@ -811,6 +820,7 @@
 			packageReferences = (
 				864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				864A2F9122B8D4E70024B2CD /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				864F20DB22BA020E005FF206 /* XCRemoteSwiftPackageReference "SwiftRichString" */,
 			);
 			productRefGroup = 86C0278B22B8AB3500F06236 /* Products */;
 			projectDirPath = "";
@@ -907,6 +917,7 @@
 				86ECCAAB22B9DF960006B222 /* UserDefault.swift in Sources */,
 				864A2FC222B8DF150024B2CD /* Error+Extensions.swift in Sources */,
 				864A2FC622B8ED700024B2CD /* RandomAccessCollection+Extensions.swift in Sources */,
+				864EA4B922BA05800060C301 /* NSAttributedString+Extensions.swift in Sources */,
 				864A2FC022B8DF060024B2CD /* Optional+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1710,6 +1721,14 @@
 				minimumVersion = 8.1.1;
 			};
 		};
+		864F20DB22BA020E005FF206 /* XCRemoteSwiftPackageReference "SwiftRichString" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftRichString";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1732,6 +1751,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = FeedKit;
+		};
+		864F20DC22BA020E005FF206 /* SwiftRichString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 864F20DB22BA020E005FF206 /* XCRemoteSwiftPackageReference "SwiftRichString" */;
+			productName = SwiftRichString;
+		};
+		864F20DE22BA021C005FF206 /* SwiftRichString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 864F20DB22BA020E005FF206 /* XCRemoteSwiftPackageReference "SwiftRichString" */;
+			productName = SwiftRichString;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

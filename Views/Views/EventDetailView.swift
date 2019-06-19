@@ -43,8 +43,8 @@ public struct EventDetailView : View {
 						.color(.accentColor)
 				}
 			})
-			try? LabelView(html: event.eventHTML ?? "")
-			.relativeWidth(1)
+			LabelView(html: event.eventHTML ?? "")
+//				.frame(maxWidth: 200)
 //			Text(event.eventHTML ?? "")
 //				.font(.body)
 //				.lineLimit(nil)

@@ -1,16 +1,22 @@
 import UIKit
 import SwiftUI
+import SwiftRichString
+import Common
 
 public struct LabelView: UIViewRepresentable {
 	public let attributedText: NSAttributedString
 	
-	public init(attributedText: NSAttributedString) {
-		self.attributedText = attributedText
+	public init(html: String) {
+		self.attributedText = try! NSAttributedString(html: html)
 	}
 	
-	public init(html: String) throws {
-		let data = Data(html.utf8)
-		self.attributedText = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+	public init(html: String, baseFont: UIFont = UIFont.preferredFont(forTextStyle: .body), color: SwiftUI.Color = .primary) throws {
+		let style = Style {
+			$0.font = baseFont
+//			$0.color = color
+			$0.alignment = .left
+		}
+		attributedText = html.set(style: style)
 	}
 	
 	public func makeUIView(context: UIViewRepresentableContext<LabelView>) -> UILabel {

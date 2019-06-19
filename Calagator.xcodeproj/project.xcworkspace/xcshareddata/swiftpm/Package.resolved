@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "SwiftRichString",
+        "repositoryURL": "https://github.com/malcommac/SwiftRichString",
+        "state": {
+          "branch": null,
+          "revision": "d73a9ddf819e26667f2a7542d53c255c58ad45c3",
+          "version": "3.0.0"
+        }
+      },
+      {
         "package": "SwiftSoup",
         "repositoryURL": "https://github.com/scinfu/SwiftSoup",
         "state": {
