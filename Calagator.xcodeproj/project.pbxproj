@@ -47,6 +47,7 @@
 		864EAE3F22B8BBFB00903CC5 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3E22B8BBFB00903CC5 /* EventRow.swift */; };
 		864EAE4122B8BDE300903CC5 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4022B8BDE300903CC5 /* Link.swift */; };
 		864EAE4322B8BF3B00903CC5 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */; };
+		86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86611D3F22B9D97900D4D2FD /* CalendarManager.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
 		86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0279322B8AB3600F06236 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; };
 		86C027DB22B8ADE700F06236 /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0279122B8AB3500F06236 /* MainTabbedView.swift */; };
+		86ECCAAB22B9DF960006B222 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECCAAA22B9DF960006B222 /* UserDefault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +237,7 @@
 		864EAE3E22B8BBFB00903CC5 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
 		864EAE4022B8BDE300903CC5 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		864EAE4222B8BF3B00903CC5 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		86611D3F22B9D97900D4D2FD /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C0278F22B8AB3500F06236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		86C027CD22B8ADE700F06236 /* ViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C027D422B8ADE700F06236 /* ViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsTests.swift; sourceTree = "<group>"; };
 		86C027D622B8ADE700F06236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86ECCAAA22B9DF960006B222 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +369,7 @@
 			children = (
 				864A2F9B22B8DEEA0024B2CD /* Common.h */,
 				864A2F9C22B8DEEA0024B2CD /* Info.plist */,
+				86611D4122B9DF3B00D4D2FD /* Property Wrappers */,
 				864A2FC722B8ED740024B2CD /* Foundation Extensions */,
 			);
 			path = Common;
@@ -404,6 +409,7 @@
 				864EAE1222B8B36800903CC5 /* Models.h */,
 				864EAE1322B8B36800903CC5 /* Info.plist */,
 				864EAE3022B8B70400903CC5 /* Event.swift */,
+				86611D3F22B9D97900D4D2FD /* CalendarManager.swift */,
 				864A2FC322B8E4750024B2CD /* DayEvents.swift */,
 				864EAE3222B8B78000903CC5 /* Tag.swift */,
 				864EAE4022B8BDE300903CC5 /* Link.swift */,
@@ -427,6 +433,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86611D4122B9DF3B00D4D2FD /* Property Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				86ECCAAA22B9DF960006B222 /* UserDefault.swift */,
+			);
+			path = "Property Wrappers";
 			sourceTree = "<group>";
 		};
 		86C0278122B8AB3400F06236 = {
@@ -887,6 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86ECCAAB22B9DF960006B222 /* UserDefault.swift in Sources */,
 				864A2FC222B8DF150024B2CD /* Error+Extensions.swift in Sources */,
 				864A2FC622B8ED700024B2CD /* RandomAccessCollection+Extensions.swift in Sources */,
 				864A2FC022B8DF060024B2CD /* Optional+Extensions.swift in Sources */,
@@ -908,6 +923,7 @@
 				864EAE3522B8B85E00903CC5 /* Address.swift in Sources */,
 				864EAE3722B8B90800903CC5 /* Venue.swift in Sources */,
 				864EAE3322B8B78000903CC5 /* Tag.swift in Sources */,
+				86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */,
 				864EAE3122B8B70400903CC5 /* Event.swift in Sources */,
 				864EAE4122B8BDE300903CC5 /* Link.swift in Sources */,
 				864A2FC422B8E4750024B2CD /* DayEvents.swift in Sources */,

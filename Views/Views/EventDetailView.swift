@@ -1,5 +1,6 @@
 import SwiftUI
 import Models
+import EventKit
 
 public struct EventDetailView : View {
 	public var event: Event
@@ -13,7 +14,7 @@ public struct EventDetailView : View {
 				.font(.body)
 				.lineLimit(nil)
 			if event.venue?.address != nil {
-				MapView(address: event.venue!.address.fullDisplay)
+				MapView(address: event.venue!.address.shortDisplay)
 					.frame(height: 240)
 					.cornerRadius(8)
 				Text(event.venue!.address.shortDisplay)
@@ -23,13 +24,27 @@ public struct EventDetailView : View {
 			//			.relativeWidth(1.0)
 			//			.relativeHeight(2.0)
 			Button(action: {
-				print("Add to calendar")
-				return
+				let calendarManager = CalendarManager()
+				if CalendarManager().calendarEvent(for: self.event) == nil {
+					calendarManager.addEvent(self.event) { error in
+						print(error)
+					}
+				} else {
+					calendarManager.removeEvent(self.event) { error in
+						print(error)
+					}
+				}
 			}, label: {
-				Text("Add to Calendar")
-					.font(.body)
+				if CalendarManager().calendarEvent(for: self.event) == nil {
+					Text("Add to Calendar")
+						.font(.body)
+						.color(.accentColor)
+				} else {
+					Text("Remove from Calendar")
+						.font(.body)
+						.color(.accentColor)
+				}
 			})
-				.accentColor(nil)
 			Text(event.eventHTML ?? "")
 				.font(.body)
 				.lineLimit(nil)
