@@ -2,7 +2,7 @@ import UIKit
 import SwiftUI
 
 public extension NSAttributedString {
-	convenience init(html: String, font: UIFont = UIFont.preferredFont(forTextStyle: .body), color: SwiftUI.Color = .primary) throws {
+	convenience init(html: String, font: UIFont = UIFont.preferredFont(forTextStyle: .body), color: SwiftUI.Color = .primary, linkColor: SwiftUI.Color = .accentColor) throws {
 		let styledHTML = String("<span style=\"font-family: \(font.fontName); font-size: \(font.pointSize)\">\(html)</span>")
 		
 		try self.init(
