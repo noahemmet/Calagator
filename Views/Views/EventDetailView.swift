@@ -25,11 +25,11 @@ public struct EventDetailView : View {
 				let calendarManager = CalendarManager()
 				if CalendarManager().calendarEvent(for: self.event) == nil {
 					calendarManager.addEvent(self.event) { error in
-						print(error)
+						print(error as Any)
 					}
 				} else {
 					calendarManager.removeEvent(self.event) { error in
-						print(error)
+						print(error as Any)
 					}
 				}
 			}, label: {

@@ -20,7 +20,9 @@ public class EventFetcher: BindableObject {
 		}
 	}
 	
-	public init() {
+	public init() { }
+	
+	public func fetch() {
 		let parser = FeedParser(URL: EventFetcher.url)
 		parser.parseAsync { result in
 			switch result {
@@ -38,6 +40,7 @@ public class EventFetcher: BindableObject {
 				self.state = .failure("Unrecognized data")
 			}
 		}
+
 	}
 	
 	static func events(from atomEntries: [AtomFeedEntry]) throws -> [Event] {

@@ -12,28 +12,48 @@ import Models
 public struct MainTabbedView : View {
 	public init() { }
 	
-    @State private var selection = 0
- 
-    public var body: some View {
-        TabbedView(selection: $selection){
-            EventLoadingView()
-                .font(.title)
-//                .tabItemLabel(Image("clock", bundle: Bundle(identifier: "sticks.Views")!))
-				.tabItemLabel(Text("Events"))
-                .tag(0)
-            VenuesView()
-                .font(.title)
-//                .tabItemLabel(Image("map"))
-				.tabItemLabel(Text("Venues"))
-                .tag(1)
-        }
-    }
+	@State private var selection = 0
+	let eventLoadingView = EventLoadingView()
+	
+	public var body: some View {
+		TabbedView(selection: $selection){
+			
+			// Events
+			eventLoadingView
+				.onAppear {
+					self.eventLoadingView.eventFetcher.fetch()
+			}
+			.font(.title)
+				//                .tabItemLabel(Image("clock", bundle: Bundle(identifier: "sticks.Views")!))
+				.tabItem {
+					Text("Events")
+			}
+			.tag(0)
+			
+			// Venues
+			VenuesView()
+				.font(.title)
+				//                .tabItemLabel(Image("map"))
+				.tabItem {
+					Text("Venues")
+			}
+			.tag(1)
+		}
+			//			Text("detail")
+			.navigationBarHidden(true)
+			.navigationBarTitle(Text("Calagator"), displayMode: .inline)
+			.navigationBarItems(trailing:
+				PresentationLink(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
+					Text("+")
+			})
+		
+	}
 }
 
 #if DEBUG
 struct MainTabbedView_Previews : PreviewProvider {
-    static var previews: some View {
-        MainTabbedView()
-    }
+	static var previews: some View {
+		MainTabbedView()
+	}
 }
 #endif

@@ -1,5 +1,5 @@
 
-@propertyDelegate
+@propertyWrapper
 public struct UserDefault<T> {
 	public let key: String
 	public let defaultValue: T
@@ -9,7 +9,7 @@ public struct UserDefault<T> {
 		self.defaultValue = defaultValue
 	}
 	
-	public var value: T {
+	public var wrappedValue: T {
 		get {
 			return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
 		}
