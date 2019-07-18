@@ -44,7 +44,6 @@ public struct EventDetailView : View {
 				}
 			})
 			LabelView(html: event.eventHTML ?? "")
-//				.frame(maxWidth: 200)
 //			Text(event.eventHTML ?? "")
 //				.font(.body)
 //				.lineLimit(nil)

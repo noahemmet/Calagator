@@ -3,10 +3,19 @@ import Combine
 import FeedKit
 import Models
 
+<<<<<<< HEAD
 public class EventFetcher: ObservableObject {
 	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
+=======
+public class EventFetcher: BindableObject {
+>>>>>>> sheet
 	
-	public var didChange = PassthroughSubject<EventFetcher, Never>()
+	public typealias PublisherType = PassthroughSubject<EventFetcher, Never>
+	
+//	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
+	private static let url = URL(string: "http://calagator.org/events.atom")!
+
+	public var willChange: PassthroughSubject<EventFetcher, Never> = PassthroughSubject<EventFetcher, Never>()
 	
 	public var state: ViewState<[EventsByDay]> = .loading {
 		didSet {
@@ -15,7 +24,7 @@ public class EventFetcher: ObservableObject {
 //			}
 			DispatchQueue.main.async { [weak self] in
 				guard let self = self else { return }
-				self.didChange.send(self)
+				self.willChange.send(self)
 			}
 		}
 	}

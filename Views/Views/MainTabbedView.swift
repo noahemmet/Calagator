@@ -14,6 +14,7 @@ public struct MainTabbedView : View {
 	public init() { }
 	
 	@State private var selection = 0
+	@State private var isShowingAddEvent = false
 	let eventLoadingView = EventLoadingView()
 	
 	public var body: some View {
@@ -31,6 +32,10 @@ public struct MainTabbedView : View {
 					Text("Events")
 			}
 			.tag(0)
+			.sheet(isPresented: $isShowingAddEvent,
+				   content: {
+					SafariView(url: URL(string: "http://calagator.org/events/new")!)
+			})
 			
 			// Venues
 			VenuesView()
@@ -45,11 +50,18 @@ public struct MainTabbedView : View {
 			//			Text("detail")
 			.navigationBarHidden(true)
 			.navigationBarTitle(Text("Calagator"), displayMode: .inline)
+<<<<<<< HEAD
 			.navigationBarItems(trailing:
 				NavigationLink(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
 					Image(systemSymbol: .plus)
 			})
 		
+=======
+			.navigationBarItems(trailing: Button("+", action: showAddEvent))
+	}
+	func showAddEvent() {
+		isShowingAddEvent = true
+>>>>>>> sheet
 	}
 }
 
