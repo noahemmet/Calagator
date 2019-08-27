@@ -3,12 +3,7 @@ import Combine
 import FeedKit
 import Models
 
-<<<<<<< HEAD
 public class EventFetcher: ObservableObject {
-	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
-=======
-public class EventFetcher: BindableObject {
->>>>>>> sheet
 	
 	public typealias PublisherType = PassthroughSubject<EventFetcher, Never>
 	
