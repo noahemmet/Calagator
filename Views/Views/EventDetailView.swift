@@ -36,11 +36,11 @@ public struct EventDetailView : View {
 				if CalendarManager().calendarEvent(for: self.event) == nil {
 					Text("Add to Calendar")
 						.font(.body)
-						.color(AppStyle.accent)
+						.foregroundColor(AppStyle.accent)
 				} else {
 					Text("Remove from Calendar")
 						.font(.body)
-						.color(AppStyle.accent)
+						.foregroundColor(AppStyle.accent)
 				}
 			})
 			LabelView(html: event.eventHTML ?? "")

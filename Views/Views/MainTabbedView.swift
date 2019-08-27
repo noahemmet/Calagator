@@ -16,7 +16,7 @@ public struct MainTabbedView : View {
 	let eventLoadingView = EventLoadingView()
 	
 	public var body: some View {
-		TabbedView(selection: $selection){
+		TabView(selection: $selection){
 			
 			// Events
 			eventLoadingView
@@ -43,8 +43,8 @@ public struct MainTabbedView : View {
 			.navigationBarHidden(true)
 			.navigationBarTitle(Text("Calagator"), displayMode: .inline)
 			.navigationBarItems(trailing:
-				PresentationLink(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
-					Text("+")
+				NavigationLink(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
+					Image
 			})
 		
 	}

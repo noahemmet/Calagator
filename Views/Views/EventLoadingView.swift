@@ -2,7 +2,7 @@ import SwiftUI
 import Models
 
 struct EventLoadingView : View {
-	@ObjectBinding var eventFetcher = EventFetcher()
+	@ObservedObject var eventFetcher = EventFetcher()
 	
 	private var stateContent: AnyView {
 		switch eventFetcher.state {

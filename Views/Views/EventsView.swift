@@ -16,7 +16,7 @@ public struct EventsView : View {
 				}
 			}
 		}
-		.listStyle(.grouped)
+		.listStyle(GroupedListStyle())
 	}
 }
 

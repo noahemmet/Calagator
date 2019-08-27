@@ -3,7 +3,7 @@ import Combine
 import FeedKit
 import Models
 
-public class EventFetcher: BindableObject {
+public class EventFetcher: ObservableObject {
 	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 	
 	public var didChange = PassthroughSubject<EventFetcher, Never>()

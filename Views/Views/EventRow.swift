@@ -11,11 +11,11 @@ public struct EventRow : View {
 				// Start time
 				Text(event.startTime)
 					.font(.footnote)
-					.color(.primary)
+					.foregroundColor(.primary)
 				// End time
 				Text(event.endTime)
 					.font(.footnote)
-					.color(.secondary)
+					.foregroundColor(.secondary)
 			}
 				.frame(minWidth: 60) // prevents the dates from pushing the title text
 //			Divider()
@@ -23,11 +23,11 @@ public struct EventRow : View {
 				// Title
 				Text(event.title)
 					.font(.body)
-					.color(.primary)
+					.foregroundColor(.primary)
 				// Summary
 				Text(event.venue?.name ?? event.summary)
 					.font(.footnote)
-					.color(.secondary)
+					.foregroundColor(.secondary)
 			}
 		}
 	}
