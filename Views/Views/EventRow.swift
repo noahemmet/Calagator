@@ -16,8 +16,8 @@ public struct EventRow : View {
 				Text(event.endTime)
 					.font(.footnote)
 					.foregroundColor(.secondary)
-			}
-				.frame(minWidth: 60) // prevents the dates from pushing the title text
+			}.frame(width: 60)
+//				.frame(minWidth: 60) // prevents the dates from pushing the title text
 //			Divider()
 			VStack(alignment: .leading) {
 				// Title
@@ -28,6 +28,7 @@ public struct EventRow : View {
 				Text(event.venue?.name ?? event.summary)
 					.font(.footnote)
 					.foregroundColor(.secondary)
+					.lineLimit(2)
 			}
 		}
 	}

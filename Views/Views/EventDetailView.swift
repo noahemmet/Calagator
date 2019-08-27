@@ -44,9 +44,9 @@ public struct EventDetailView : View {
 				}
 			})
 			LabelView(html: event.eventHTML ?? "")
-//			Text(event.eventHTML ?? "")
-//				.font(.body)
-//				.lineLimit(nil)
+			//			Text(event.eventHTML ?? "")
+			//				.font(.body)
+			//				.lineLimit(nil)
 		}
 	}
 }

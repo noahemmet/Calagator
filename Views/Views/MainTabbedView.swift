@@ -9,6 +9,7 @@
 import SwiftUI
 import SFSafeSymbols
 import Models
+import Common
 
 public struct MainTabbedView : View {
 	public init() { }
@@ -19,23 +20,27 @@ public struct MainTabbedView : View {
 	
 	public var body: some View {
 		TabView(selection: $selection){
-			
-			// Events
-			eventLoadingView
-				.onAppear {
-					self.eventLoadingView.eventFetcher.fetch()
-			}
-			.font(.title)
-				//                .tabItemLabel(Image("clock", bundle: Bundle(identifier: "sticks.Views")!))
+			NavigationView {
+				// Events
+				eventLoadingView
+					.onAppear {
+						self.eventLoadingView.eventFetcher.fetch()
+				}
 				.tabItem {
 					Image(systemSymbol: .calendar)
 					Text("Events")
+				}
+				.navigationBarTitle(Text("Calagator"), displayMode: .inline)
+				.navigationBarItems(trailing:
+					Button(action: showAddEvent) {
+						Image(systemSymbol: .plus)
+				})
+					.tag(0)
+					.sheet(isPresented: $isShowingAddEvent,
+								 content: {
+									SafariView(url: URL(string: "http://calagator.org/events/new")!)
+				})
 			}
-			.tag(0)
-			.sheet(isPresented: $isShowingAddEvent,
-				   content: {
-					SafariView(url: URL(string: "http://calagator.org/events/new")!)
-			})
 			
 			// Venues
 			VenuesView()
@@ -47,13 +52,6 @@ public struct MainTabbedView : View {
 			}
 			.tag(1)
 		}
-			//			Text("detail")
-			.navigationBarHidden(true)
-			.navigationBarTitle(Text("Calagator"), displayMode: .inline)
-			.navigationBarItems(trailing:
-				NavigationLink(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
-					Image(systemSymbol: .plus)
-			})
 	}
 	
 	func showAddEvent() {
