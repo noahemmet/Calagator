@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "SFSafeSymbols",
+        "repositoryURL": "https://github.com/piknotech/SFSafeSymbols",
+        "state": {
+          "branch": null,
+          "revision": "6d243eed009eacef4354f80315309ba4e089c1ab",
+          "version": "0.4.0"
+        }
+      },
+      {
         "package": "SwiftRichString",
         "repositoryURL": "https://github.com/malcommac/SwiftRichString",
         "state": {

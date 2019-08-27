@@ -66,6 +66,7 @@
 		86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; };
 		86C027DB22B8ADE700F06236 /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0279122B8AB3500F06236 /* MainTabbedView.swift */; };
+		86C5130F2315D7BC00B97991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 86C5130E2315D7BC00B97991 /* SFSafeSymbols */; };
 		86ECCAAB22B9DF960006B222 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECCAAA22B9DF960006B222 /* UserDefault.swift */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C5130F2315D7BC00B97991 /* SFSafeSymbols in Frameworks */,
 				864EAE2F22B8B5AB00903CC5 /* FeedKit in Frameworks */,
 				864F20DD22BA020E005FF206 /* SwiftRichString in Frameworks */,
 				864A2FAE22B8DEEB0024B2CD /* Common.framework in Frameworks */,
@@ -680,6 +682,7 @@
 			packageProductDependencies = (
 				864EAE2E22B8B5AB00903CC5 /* FeedKit */,
 				864F20DC22BA020E005FF206 /* SwiftRichString */,
+				86C5130E2315D7BC00B97991 /* SFSafeSymbols */,
 			);
 			productName = Calagator;
 			productReference = 86C0278A22B8AB3500F06236 /* Calagator.app */;
@@ -824,6 +827,7 @@
 				864EAE2D22B8B5AB00903CC5 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				864A2F9122B8D4E70024B2CD /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				864F20DB22BA020E005FF206 /* XCRemoteSwiftPackageReference "SwiftRichString" */,
+				86C5130D2315D7BC00B97991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = 86C0278B22B8AB3500F06236 /* Products */;
 			projectDirPath = "";
@@ -1733,6 +1737,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		86C5130D2315D7BC00B97991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1765,6 +1777,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864F20DB22BA020E005FF206 /* XCRemoteSwiftPackageReference "SwiftRichString" */;
 			productName = SwiftRichString;
+		};
+		86C5130E2315D7BC00B97991 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C5130D2315D7BC00B97991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
