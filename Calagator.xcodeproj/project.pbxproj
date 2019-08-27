@@ -67,6 +67,7 @@
 		86C027DB22B8ADE700F06236 /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0279122B8AB3500F06236 /* MainTabbedView.swift */; };
 		86C5130F2315D7BC00B97991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 86C5130E2315D7BC00B97991 /* SFSafeSymbols */; };
+		86C513112315D80E00B97991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 86C513102315D80E00B97991 /* SFSafeSymbols */; };
 		86ECCAAB22B9DF960006B222 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECCAAA22B9DF960006B222 /* UserDefault.swift */; };
 /* End PBXBuildFile section */
 
@@ -335,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C513112315D80E00B97991 /* SFSafeSymbols in Frameworks */,
 				864A2FBB22B8DEF60024B2CD /* Common.framework in Frameworks */,
 				864F20DF22BA021C005FF206 /* SwiftRichString in Frameworks */,
 				864EAE3922B8BBCB00903CC5 /* Models.framework in Frameworks */,
@@ -744,6 +746,7 @@
 			packageProductDependencies = (
 				864A2F8B22B8C7F70024B2CD /* FeedKit */,
 				864F20DE22BA021C005FF206 /* SwiftRichString */,
+				86C513102315D80E00B97991 /* SFSafeSymbols */,
 			);
 			productName = Views;
 			productReference = 86C027C522B8ADE700F06236 /* Views.framework */;
@@ -1779,6 +1782,11 @@
 			productName = SwiftRichString;
 		};
 		86C5130E2315D7BC00B97991 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C5130D2315D7BC00B97991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+		86C513102315D80E00B97991 /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 86C5130D2315D7BC00B97991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
 			productName = SFSafeSymbols;

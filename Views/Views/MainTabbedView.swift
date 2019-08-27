@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SFSafeSymbols
 import Models
 
 public struct MainTabbedView : View {
@@ -26,6 +27,7 @@ public struct MainTabbedView : View {
 			.font(.title)
 				//                .tabItemLabel(Image("clock", bundle: Bundle(identifier: "sticks.Views")!))
 				.tabItem {
+					Image(systemSymbol: .calendar)
 					Text("Events")
 			}
 			.tag(0)
@@ -35,6 +37,7 @@ public struct MainTabbedView : View {
 				.font(.title)
 				//                .tabItemLabel(Image("map"))
 				.tabItem {
+					Image(systemSymbol: .calendar)
 					Text("Venues")
 			}
 			.tag(1)
@@ -44,7 +47,7 @@ public struct MainTabbedView : View {
 			.navigationBarTitle(Text("Calagator"), displayMode: .inline)
 			.navigationBarItems(trailing:
 				NavigationLink(destination: SafariView(url: URL(string: "http://calagator.org/events/new")!)) {
-					Image
+					Image(systemSymbol: .plus)
 			})
 		
 	}
