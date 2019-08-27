@@ -42,7 +42,7 @@ public struct MainTabbedView : View {
 				.font(.title)
 				//                .tabItemLabel(Image("map"))
 				.tabItem {
-					Image(systemSymbol: .calendar)
+					Image(systemSymbol: .map)
 					Text("Venues")
 			}
 			.tag(1)

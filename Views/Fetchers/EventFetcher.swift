@@ -5,21 +5,19 @@ import Models
 
 public class EventFetcher: ObservableObject {
 	
-	public typealias PublisherType = PassthroughSubject<EventFetcher, Never>
+//	public typealias PublisherType = PassthroughSubject<Void, Never>
 	
 //	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 	private static let url = URL(string: "http://calagator.org/events.atom")!
-
-	public var willChange: PassthroughSubject<EventFetcher, Never> = PassthroughSubject<EventFetcher, Never>()
 	
-	public var state: ViewState<[EventsByDay]> = .loading {
-		didSet {
+	@Published public var state: ViewState<[EventsByDay]> = .loading {
+		willSet {
 //			if case .success = oldValue {
 //				return
 //			}
 			DispatchQueue.main.async { [weak self] in
 				guard let self = self else { return }
-				self.willChange.send(self)
+				self.objectWillChange.send()
 			}
 		}
 	}

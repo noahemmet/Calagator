@@ -1,7 +1,7 @@
 import Foundation
 
-public enum ViewState<Model> {
+public enum ViewState<ViewModel> {
 	case loading
-	case success(Model)
+	case success(ViewModel)
 	case failure(String)
 }
