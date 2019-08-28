@@ -2,11 +2,14 @@ import Foundation
 import SwiftUI
 import Combine
 
+/// Depicts a View that can be initialized from some view model.
 public protocol ViewModelInitializable: View {
 	associatedtype ViewModel
 	init(_ viewModel: ViewModel)
 }
 
+/// Loads a generic view.
+/// TODO: This needs better Combine integration.
 public struct ViewStateLoader<SuccessView: ViewModelInitializable>: View {
 	
 	public typealias ViewModel = SuccessView.ViewModel

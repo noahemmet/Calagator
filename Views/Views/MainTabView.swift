@@ -3,6 +3,7 @@ import SFSafeSymbols
 import Models
 import Common
 
+/// Displays the Events and Venues tab
 public struct MainTabView : View {
 	public enum Tab: Int {
 		case events

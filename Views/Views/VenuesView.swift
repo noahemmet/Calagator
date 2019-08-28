@@ -9,6 +9,7 @@
 import SwiftUI
 import Models
 
+/// Displays a list of all venues.
 public struct VenuesView : View {
 	public var venues: [Venue]
 	public var body: some View {

@@ -3,10 +3,8 @@ import Combine
 import FeedKit
 import Models
 
+/// Fetches events.
 public class EventFetcher: ObservableObject {
-	
-//	public typealias PublisherType = PassthroughSubject<Void, Never>
-	
 //	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 	private static let url = URL(string: "http://calagator.org/events.atom")!
 	
