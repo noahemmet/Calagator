@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			let window = UIWindow(windowScene: windowScene)
 			let mainTabbedView = MainTabbedView()
 			window.rootViewController = UIHostingController(rootView: mainTabbedView)
+			window.tintColor = AppStyle.accentUI
 			self.window = window
 			window.makeKeyAndVisible()
 		}

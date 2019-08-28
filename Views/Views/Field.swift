@@ -4,7 +4,12 @@ public struct Field: View {
 	public let header: String
 	public let text: String
 
-	public init(header: String, text: String) {
+	public init(header: String, text: String?) {
+		guard let text = text else {
+			self.header = ""
+			self.text = ""
+			return
+		}
 		self.header = header
 		self.text = text
 	}
@@ -17,7 +22,7 @@ public struct Field: View {
 			Text(text)
 				.font(.body)
 				.foregroundColor(.primary)
-			.lineLimit(3)
+				.lineLimit(Int.max) // nil wasn't wrapping correctly
 		}
 	}
 }

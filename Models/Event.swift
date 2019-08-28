@@ -20,7 +20,10 @@ public struct Event: Codable, Hashable, Identifiable {
 	public var id: Int
 	public var title: String
 	public var summary: String
+	public var eventDescription: String?
 	public var eventHTML: String?
+	/// The URL to open in Calagator.org
+	public var pageURL: URL
 	public var links: [Link]
 	public var venue: Venue?
 	public var venueDetails: String?
@@ -33,13 +36,19 @@ public struct Event: Codable, Hashable, Identifiable {
 		guard let end = end else { return "" }
 		return Event.timeDF.string(from: end)
 	}
+	public var totalTime: String {
+		let endTime = self.endTime
+		return startTime + (endTime.isEmpty ? "" : "\n" + endTime)		
+	}
 	public var tags: [Tag]
 
-	public init(id: Int, title: String, summary: String, eventHTML: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {
+	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, eventHTML: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {
 		self.id = id
 		self.title = title
 		self.summary = summary
+		self.eventDescription = eventDescription
 		self.eventHTML = eventHTML
+		self.pageURL = URL(string: "http://calagator.org/events/\(id)")!
 		self.links = links
 		self.venue = venue
 		self.venueDetails = venueDetails
@@ -91,9 +100,10 @@ extension Event {
 		}
 		
 		let description = try doc.select("div.description")
+		let eventDescription = try description.text()
 		// This crashes on an empty string.
 		let eventHTML = description.isEmpty() ? nil : try description.html()
 
-		self.init(id: id, title: title, summary: summary, eventHTML: eventHTML, links: links, venue: venue, venueDetails: nil, start: start, end: end, tags: [])
+		self.init(id: id, title: title, summary: summary, eventDescription: eventDescription, eventHTML: eventHTML, links: links, venue: venue, venueDetails: nil, start: start, end: end, tags: [])
 	}
 }
