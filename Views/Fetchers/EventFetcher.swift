@@ -8,7 +8,7 @@ public class EventFetcher: ObservableObject {
 //	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 	private static let url = URL(string: "http://calagator.org/events.atom")!
 	
-	@Published public var state: ViewState<[EventsByDay]> = .loading {
+	@Published public var eventState: ViewState<[EventsByDay]> = .loading {
 		willSet {
 //			if case .success = oldValue {
 //				return
@@ -20,6 +20,7 @@ public class EventFetcher: ObservableObject {
 	public init() { }
 	
 	public func fetch() {
+		
 		let parser = FeedParser(URL: EventFetcher.url)
 		parser.parseAsync { result in
 				switch result {
@@ -29,15 +30,15 @@ public class EventFetcher: ObservableObject {
 						let eventsByDay = EventsByDay.from(events: events)
 						DispatchQueue.main.async { [weak self] in
 							guard let self = self else { return }
-							self.state = .success(eventsByDay)
+							self.eventState = .success(eventsByDay)
 						}
 					} catch let error {
-						self.state = .failure(error.localizedDescription)
+						self.eventState = .failure(error.localizedDescription)
 					}
 				case .failure(let error):
-					self.state = .failure(error.localizedDescription)
+					self.eventState = .failure(error.localizedDescription)
 				default:
-					self.state = .failure("Unrecognized data")
+					self.eventState = .failure("Unrecognized data")
 				}
 		}
 	}

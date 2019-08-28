@@ -23,15 +23,20 @@ public struct EventDetailView : View {
 					.frame(height: 240)
 					.cornerRadius(8)
 			}
-			Field(header: "What", text: event.eventDescription)
+			Field(header: "What") {
+				LabelView(html: self.event.eventHTML ?? "")
+//				Text(self.event.eventHTML ?? "")
+//					.font(.body)
+//					.lineLimit(nil)
+			}
 			if self.event.links.isEmpty == false {
-				Field(header: "Links", content: {
+				Field(header: "Links") {
 					ForEach(self.event.links) { link in
 						Button(action: { self.showInSafari = link } ) {
 							Text(link.name)
 						}
 					}
-				})
+				}
 			}
 		}
 		.navigationBarItems(trailing:
