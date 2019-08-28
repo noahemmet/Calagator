@@ -6,4 +6,13 @@ public extension RandomAccessCollection where Index == Int {
 		}
 		return self[index]
 	}
+	
+	func keyed<Key: Hashable>(by closure: (Element) throws -> Key ) rethrows -> [Key: [Element]] {
+		return try self.reduce([:]) { result, element in
+			var result = result
+			let key = try closure(element)
+			result[key, default: []].append(element)
+			return result
+		}
+	}
 }
