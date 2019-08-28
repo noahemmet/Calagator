@@ -5,7 +5,7 @@ import EventKit
 public struct EventDetailView : View {
 	public var event: Event
 	
-	@State private var showInSafari = false
+	@State private var showInSafari: Link?
 	
 	public init(_ event: Event) {
 		self.event = event
@@ -24,6 +24,15 @@ public struct EventDetailView : View {
 					.cornerRadius(8)
 			}
 			Field(header: "What", text: event.eventDescription)
+			if self.event.links.isEmpty == false {
+				Field(header: "Links", content: {
+					ForEach(self.event.links) { link in
+						Button(action: { self.showInSafari = link } ) {
+							Text(link.name)
+						}
+					}
+				})
+			}
 		}
 		.navigationBarItems(trailing:
 			HStack(spacing: 16) {
@@ -36,7 +45,7 @@ public struct EventDetailView : View {
 				}
 				// Open in Safari
 				Button(action: {
-					self.showInSafari = true
+					self.showInSafari = Link(url: self.event.pageURL)
 				}, label: {
 					Image(systemSymbol: .safari)
 				})
@@ -46,9 +55,9 @@ public struct EventDetailView : View {
 			//				.font(.body)
 			//				.lineLimit(nil)
 		)
-			.sheet(isPresented: $showInSafari,
-						 content: {
-							SafariView(url: self.event.pageURL)
+			.sheet(item: $showInSafari,
+						 content: { link in
+							SafariView(url: link.url)
 			})
 	}
 	

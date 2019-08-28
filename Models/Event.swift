@@ -70,7 +70,8 @@ extension Event {
 		let doc = try SwiftSoup.parse(contentHTML)
 		let idIndex = idString.index(after: idSlashIndex)
 		let id = Int(idString.suffix(from: idIndex))!
-		let links: [Link] = atomEntry.links?.compactMap { Link(atomLink: $0) } ?? []
+		
+//		let links: [Link] = atomEntry.links?.compactMap { Link(atomLink: $0) } ?? []
 		
 		let venue: Venue?
 		if let location = try? doc.select("div.location").first {
@@ -101,6 +102,13 @@ extension Event {
 		
 		let description = try doc.select("div.description")
 		let eventDescription = try description.text()
+		
+		let descriptionLinkDocs = try description.select("a")
+		let descriptionLinks = try descriptionLinkDocs.array().compactMap { Link(urlString: try $0.text()) }
+		
+		// TODO: Get website link
+		let links = descriptionLinks
+		
 		// This crashes on an empty string.
 		let eventHTML = description.isEmpty() ? nil : try description.html()
 

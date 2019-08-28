@@ -11,7 +11,7 @@ import Models
 
 public struct VenueDetailView: View {
 	public let venue: Venue
-	@State private var showInSafari = false
+	@State private var showInSafari: Link?
 	
 	public var body: some View {
 		List {
@@ -29,15 +29,15 @@ public struct VenueDetailView: View {
 			HStack(spacing: 16) {
 				// Open in Safari
 				Button(action: {
-					self.showInSafari = true
+					self.showInSafari = Link(url: self.venue.pageURL)
 				}, label: {
 					Image(systemSymbol: .safari)
 				})
 			}
 		)
-			.sheet(isPresented: $showInSafari,
-						 content: {
-							SafariView(url: self.venue.pageURL)
+			.sheet(item: $showInSafari,
+						 content: { link in
+							SafariView(url: link.url)
 			})
 
 	}
