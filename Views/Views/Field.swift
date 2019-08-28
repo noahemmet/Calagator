@@ -1,17 +1,12 @@
 import SwiftUI
 
-public struct Field: View {
+public struct Field<Content>: View where Content: View {
 	public let header: String
-	public let text: String
-
-	public init(header: String, text: String?) {
-		guard let text = text else {
-			self.header = ""
-			self.text = ""
-			return
-		}
+	public let content: () -> Content
+	
+	public init(header: String, @ViewBuilder content: @escaping () -> Content) {
 		self.header = header
-		self.text = text
+		self.content = content
 	}
 	
 	public var body: some View {
@@ -19,10 +14,28 @@ public struct Field: View {
 			Text(header)
 				.font(.footnote)
 				.foregroundColor(.secondary)
-			Text(text)
-				.font(.body)
-				.foregroundColor(.primary)
-				.lineLimit(Int.max) // nil wasn't wrapping correctly
+			content()
+		}
+	}
+}
+
+// TODO: I think there's a way to do this while constrained to a ViewModifier
+extension Field where Content == AnyView {
+	
+	public init(header: String, text: String?) {
+		guard let text = text else {
+			self.header = ""
+			self.content = { AnyView(Text("")) }
+			return
+		}
+		self.header = header
+		self.content = {
+			AnyView(
+				Text(text)
+					.font(.body)
+					.foregroundColor(.primary)
+					.lineLimit(Int.max) // nil wasn't wrapping correctly
+			)
 		}
 	}
 }
