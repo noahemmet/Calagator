@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftRichString
 import FeedKit
 
 @UIApplicationMain
@@ -14,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //		let feedURL = URL(string: "http://calagator.org/events.atom")!
+		
+		let html = "feawfe"
+		let attr = try! NSAttributedString(html: html)
 		let feedURL = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 		let parser = FeedParser(URL: feedURL)
 		parser.parseAsync { result in
