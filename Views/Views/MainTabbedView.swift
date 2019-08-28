@@ -1,11 +1,3 @@
-//
-//  MainTabbedView.swift
-//  Calagator
-//
-//  Created by Noah Emmet on 6/17/19.
-//  Copyright © 2019 Noah Emmet. All rights reserved.
-//
-
 import SwiftUI
 import SFSafeSymbols
 import Models
@@ -37,8 +29,8 @@ public struct MainTabbedView : View {
 					Button(action: showAddEvent) {
 						Image(systemSymbol: .plus)
 				})
-				
-				EventDetailView(event: selectedEvent)
+				SelectedView<EventDetailView>($selectedEvent)
+//				EventDetailView(event: selectedEvent)
 			}
 			.navigationViewStyle(DoubleColumnNavigationViewStyle())
 			.tabItem {

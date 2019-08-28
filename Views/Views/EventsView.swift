@@ -9,7 +9,7 @@ public struct EventsView : View {
 			ForEach(allEventsByDay) { eventsByDay in
 				Section(header: Text(eventsByDay.dateString).font(.headline)) {
 					ForEach(eventsByDay.events) { event in
-						NavigationLink(destination: EventDetailView(event: event)) {
+						NavigationLink(destination: EventDetailView(event)) {
 							EventRow(event: event)
 						}
 					}

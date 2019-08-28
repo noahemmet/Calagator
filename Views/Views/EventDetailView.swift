@@ -2,10 +2,10 @@ import SwiftUI
 import Models
 import EventKit
 
-public struct EventDetailView : View {
+public struct EventDetailView : View, ViewModelInitializable {
 	public var event: Event
 
-	public init(event: Event) {
+	public init(_ event: Event) {
 		self.event = event
 	}
 	

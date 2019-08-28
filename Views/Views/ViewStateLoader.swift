@@ -4,7 +4,7 @@ import Combine
 
 public protocol ViewModelInitializable: View {
 	associatedtype ViewModel
-	init(viewModel: ViewModel)
+	init(_ viewModel: ViewModel)
 }
 
 public struct ViewStateLoader<SuccessView: ViewModelInitializable>: View {
@@ -15,6 +15,11 @@ public struct ViewStateLoader<SuccessView: ViewModelInitializable>: View {
 	
 	public init(_ viewModel: ViewModel, fetcher: @escaping () -> ViewState<ViewModel>) {
 		_state = .init(initialValue: .success(viewModel))
+		self.fetcher = fetcher
+	}
+	
+	public init(fetcher: @escaping () -> ViewState<ViewModel>) {
+		_state = .init(initialValue: .loading)
 		self.fetcher = fetcher
 	}
 	
@@ -30,7 +35,7 @@ public struct ViewStateLoader<SuccessView: ViewModelInitializable>: View {
 			)
 		case .success(let viewModel):
 			return AnyView(
-				SuccessView.init(viewModel: viewModel)
+				SuccessView.init(viewModel)
 			)
 		case .failure(let error):
 			return AnyView(

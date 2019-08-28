@@ -54,6 +54,7 @@
 		864F20DF22BA021C005FF206 /* SwiftRichString in Frameworks */ = {isa = PBXBuildFile; productRef = 864F20DE22BA021C005FF206 /* SwiftRichString */; };
 		86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86611D3F22B9D97900D4D2FD /* CalendarManager.swift */; };
 		86978F162315E67F007E8C47 /* ViewStateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F152315E67F007E8C47 /* ViewStateLoader.swift */; };
+		86978F182315FC33007E8C47 /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F172315FC33007E8C47 /* SelectedView.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
 		86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0279322B8AB3600F06236 /* Assets.xcassets */; };
@@ -250,6 +251,7 @@
 		864F20D922B9FFDF005FF206 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		86611D3F22B9D97900D4D2FD /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		86978F152315E67F007E8C47 /* ViewStateLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStateLoader.swift; sourceTree = "<group>"; };
+		86978F172315FC33007E8C47 /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C0278F22B8AB3500F06236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				86C0279122B8AB3500F06236 /* MainTabbedView.swift */,
+				86978F172315FC33007E8C47 /* SelectedView.swift */,
 				864A2F8D22B8C90F0024B2CD /* EventLoadingView.swift */,
 				864EAE0722B8B18000903CC5 /* EventsView.swift */,
 				864A2FC822B8F7760024B2CD /* AddEventView.swift */,
@@ -996,6 +999,7 @@
 			files = (
 				864A2F8622B8C5E10024B2CD /* EventFetcher.swift in Sources */,
 				864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */,
+				86978F182315FC33007E8C47 /* SelectedView.swift in Sources */,
 				86C027E322B8ADFB00F06236 /* MainTabbedView.swift in Sources */,
 				86978F162315E67F007E8C47 /* ViewStateLoader.swift in Sources */,
 				864EA4BB22BB16620060C301 /* AppStyle.swift in Sources */,
