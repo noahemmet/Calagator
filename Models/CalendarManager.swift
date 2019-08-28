@@ -21,7 +21,7 @@ public class CalendarManager {
 			calendarEvent.title = event.title
 			calendarEvent.startDate = event.start
 			calendarEvent.endDate = event.end
-//			calendarEvent.eventIdentifier = String(event.id)
+			//			calendarEvent.eventIdentifier = String(event.id)
 			calendarEvent.calendar = self.store.defaultCalendarForNewEvents
 			calendarEvent.notes = event.eventHTML
 			calendarEvent.location = event.venue?.address.shortDisplay

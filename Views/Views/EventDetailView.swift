@@ -4,7 +4,7 @@ import EventKit
 
 public struct EventDetailView : View, ViewModelInitializable {
 	public var event: Event
-
+	
 	public init(_ event: Event) {
 		self.event = event
 	}
@@ -14,17 +14,15 @@ public struct EventDetailView : View, ViewModelInitializable {
 			Text(event.title)
 				.font(.title)
 				.lineLimit(nil)
-			Text(event.summary)
-				.font(.body)
-				.lineLimit(nil)
+			Field(header: "When", text: event.summary)
 			if event.venue?.address != nil {
+				Field(header: "Where", text: event.venue!.addressDisplay)
 				MapView(address: event.venue!.address.shortDisplay)
 					.frame(height: 240)
 					.cornerRadius(8)
-				Text(event.venue!.addressDisplay)
-					.font(.body)
-					.lineLimit(3)
 			}
+		}
+		.navigationBarItems(trailing:
 			Button(action: {
 				let calendarManager = CalendarManager()
 				if CalendarManager().calendarEvent(for: self.event) == nil {
@@ -38,20 +36,15 @@ public struct EventDetailView : View, ViewModelInitializable {
 				}
 			}, label: {
 				if CalendarManager().calendarEvent(for: self.event) == nil {
-					Text("Add to Calendar")
-						.font(.body)
-						.foregroundColor(AppStyle.accent)
+					Image(systemSymbol: .calendarBadgePlus)
 				} else {
-					Text("Remove from Calendar")
-						.font(.body)
-						.foregroundColor(AppStyle.accent)
+					Image(systemSymbol: .calendarBadgeMinus)
 				}
 			})
-			LabelView(html: event.eventHTML ?? "")
+			//			LabelView(html: event.eventHTML ?? "")
 			//			Text(event.eventHTML ?? "")
 			//				.font(.body)
 			//				.lineLimit(nil)
-		}
-	}
+		)}
 }
 

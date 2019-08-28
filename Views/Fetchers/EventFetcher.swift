@@ -15,10 +15,7 @@ public class EventFetcher: ObservableObject {
 //			if case .success = oldValue {
 //				return
 //			}
-			DispatchQueue.main.async { [weak self] in
-				guard let self = self else { return }
 				self.objectWillChange.send()
-			}
 		}
 	}
 	
@@ -26,47 +23,25 @@ public class EventFetcher: ObservableObject {
 	
 	public func fetch() {
 		let parser = FeedParser(URL: EventFetcher.url)
-//		DispatchQueue(label: "bg").async {
-			let result = parser.parse()
-			switch result {
-			case .atom(let feed):
-				do {
-					let events = try EventFetcher.events(from: feed.entries ?? [])
-					let eventsByDay = EventsByDay.from(events: events)
-					
-//					DispatchQueue.main.async { [weak self] in
-//						guard let self = self else { return }
-						self.state = .success(eventsByDay)
-//					}
-				} catch let error {
+		parser.parseAsync { result in
+				switch result {
+				case .atom(let feed):
+					do {
+						let events = try EventFetcher.events(from: feed.entries ?? [])
+						let eventsByDay = EventsByDay.from(events: events)
+						DispatchQueue.main.async { [weak self] in
+							guard let self = self else { return }
+							self.state = .success(eventsByDay)
+						}
+					} catch let error {
+						self.state = .failure(error.localizedDescription)
+					}
+				case .failure(let error):
 					self.state = .failure(error.localizedDescription)
+				default:
+					self.state = .failure("Unrecognized data")
 				}
-			case .failure(let error):
-				self.state = .failure(error.localizedDescription)
-			default:
-				self.state = .failure("Unrecognized data")
-//			}
 		}
-//		parser.parseAsync(queue: .init(label: "background")) { result in
-//				switch result {
-//				case .atom(let feed):
-//					do {
-//						let events = try EventFetcher.events(from: feed.entries ?? [])
-//						let eventsByDay = EventsByDay.from(events: events)
-//
-//						DispatchQueue.main.async { [weak self] in
-//							guard let self = self else { return }
-//							self.state = .success(eventsByDay)
-//						}
-//					} catch let error {
-//						self.state = .failure(error.localizedDescription)
-//					}
-//				case .failure(let error):
-//					self.state = .failure(error.localizedDescription)
-//				default:
-//					self.state = .failure("Unrecognized data")
-//				}
-//		}
 	}
 	
 	static func events(from atomEntries: [AtomFeedEntry]) throws -> [Event] {
