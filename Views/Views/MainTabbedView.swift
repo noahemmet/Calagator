@@ -13,7 +13,6 @@ public struct MainTabbedView : View {
 	
 	@State private var selection = 0
 	@State private var selectedEvent: Event?
-	@State private var isShowingAddEvent = false
 	let eventLoadingView = EventLoadingView()
 	
 	public var body: some View {
@@ -24,24 +23,14 @@ public struct MainTabbedView : View {
 					.onAppear {
 						self.eventLoadingView.eventFetcher.fetch()
 				}
-				.navigationBarTitle(Text("Calagator"), displayMode: .inline)
-				.navigationBarItems(trailing:
-					Button(action: showAddEvent) {
-						Image(systemSymbol: .plus)
-				})
-				SelectedView<EventDetailView>($selectedEvent)
-//				EventDetailView(event: selectedEvent)
+				EmptyView()
 			}
-			.navigationViewStyle(DoubleColumnNavigationViewStyle())
 			.tabItem {
 				Image(systemSymbol: .calendar)
 				Text("Events")
 			}
 			.tag(Tab.events)
-			.sheet(isPresented: $isShowingAddEvent,
-						 content: {
-							SafariView(url: URL(string: "http://calagator.org/events/new")!)
-			})
+			
 			
 			// Venues
 			NavigationView {
@@ -53,10 +42,6 @@ public struct MainTabbedView : View {
 				Text("Venues")
 			}
 		}
-	}
-	
-	func showAddEvent() {
-		isShowingAddEvent = true
 	}
 }
 

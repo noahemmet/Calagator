@@ -24,7 +24,7 @@ public struct MapView: UIViewRepresentable {
 				region.center = location.coordinate
 				region.span.longitudeDelta = 0.02
 				region.span.latitudeDelta = 0.02
-				mapView.setRegion(region, animated: true)
+				mapView.setRegion(region, animated: false)
 				mapView.addAnnotation(mark)
 				
 			}
