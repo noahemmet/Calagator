@@ -7,7 +7,7 @@ public struct LabelView: UIViewRepresentable {
 	public let attributedText: NSAttributedString
 	
 	public init(html: String) {
-		self.attributedText =  (try? NSAttributedString(html: html)) ?? .init(string: "Loading error")
+		self.attributedText = .init()// (try? NSAttributedString(html: html)) ?? .init(string: "Loading error")
 	}
 	
 	public init(html: String, baseFont: UIFont = UIFont.preferredFont(forTextStyle: .body), color: SwiftUI.Color = .primary) throws {

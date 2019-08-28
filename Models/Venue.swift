@@ -2,6 +2,9 @@ import Foundation
 import SwiftSoup
 import Common
 
+public typealias VenuesSortedAlphabetically = [String: [Venue]]
+
+/// A location at which events are held.
 public struct Venue: Hashable, Identifiable {
 	public var id: Int
 	public var name: String
@@ -10,8 +13,14 @@ public struct Venue: Hashable, Identifiable {
 	public var pageURL: URL
 	
 	public var addressDisplay: String {
+		
 		if let shortDisplay = address?.shortDisplay {
-			return name + "\n" + shortDisplay
+			if shortDisplay.hasPrefix(name) {
+				// If the venue name is part of the address, no need to display it twice
+				return String(shortDisplay.dropFirst(name.count))
+			} else {
+				return name + "\n" + shortDisplay
+			}
 		} else {
 			return name
 		}
