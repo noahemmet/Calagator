@@ -2,7 +2,7 @@ import SwiftUI
 import Models
 import EventKit
 
-public struct EventDetailView : View, ViewModelInitializable {
+public struct EventDetailView : View {
 	public var event: Event
 	
 	@State private var showInSafari = false
@@ -46,7 +46,6 @@ public struct EventDetailView : View, ViewModelInitializable {
 			//				.font(.body)
 			//				.lineLimit(nil)
 		)
-		
 			.sheet(isPresented: $showInSafari,
 						 content: {
 							SafariView(url: self.event.pageURL)

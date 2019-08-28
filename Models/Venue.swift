@@ -6,6 +6,8 @@ public struct Venue: Hashable, Identifiable {
 	public var id: Int
 	public var name: String
 	public var address: Address?
+	/// The URL to open in Calagator.org
+	public var pageURL: URL
 	
 	public var addressDisplay: String {
 		if let shortDisplay = address?.shortDisplay {
@@ -19,6 +21,7 @@ public struct Venue: Hashable, Identifiable {
 		self.id = id
 		self.name = name
 		self.address = address
+		self.pageURL = URL(string: "http://calagator.org/venues/\(id)")!
 	}
 	
 	public init(htmlElement element: Element) throws {
@@ -46,6 +49,7 @@ extension Venue: Decodable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.id = try container.decode(Int.self, forKey: .id)
+		self.pageURL = URL(string: "http://calagator.org/events/\(id)")!
 		self.name = try container.decode(String.self, forKey: .name)
 		
 		do {

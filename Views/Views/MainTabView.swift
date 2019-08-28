@@ -24,7 +24,6 @@ public struct MainTabView : View {
 					.onAppear {
 						self.eventsLoadingView.eventFetcher.fetch()
 				}
-				EmptyView()
 			}
 			.tag(Tab.events)
 			.tabItem {
@@ -38,7 +37,6 @@ public struct MainTabView : View {
 					.onAppear {
 						self.venuesLoadingView.venueFetcher.fetch()
 				}
-				EmptyView()
 			}
 			.tag(Tab.venue)
 			.tabItem {
