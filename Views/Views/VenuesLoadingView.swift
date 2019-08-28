@@ -4,7 +4,7 @@ import Models
 struct VenuesLoadingView : View {
 	@ObservedObject var venueFetcher = VenueFetcher()
 	
-	@State private var showAddEvent = false
+	@State private var showAddVenue = false
 	
 	private var stateContent: AnyView {
 		switch venueFetcher.state {
@@ -27,13 +27,13 @@ struct VenuesLoadingView : View {
 	var body: some View {
 		stateContent
 			.transition(.opacity)
-			.sheet(isPresented: $showAddEvent,
+			.sheet(isPresented: $showAddVenue,
 						 content: {
-							SafariView(url: URL(string: "http://calagator.org/events/new")!)
+							SafariView(url: URL(string: "http://calagator.org/venues/new")!)
 			})
-			.navigationBarTitle(Text("Events"), displayMode: .inline)
+			.navigationBarTitle(Text("Venues"), displayMode: .inline)
 			.navigationBarItems(trailing:
-				Button(action: { self.showAddEvent = true }) {
+				Button(action: { self.showAddVenue = true }) {
 					Image(systemSymbol: .plus)
 			})
 	}

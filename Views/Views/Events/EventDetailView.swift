@@ -19,7 +19,7 @@ public struct EventDetailView : View, ViewModelInitializable {
 			Field(header: "When", text: event.totalTime)
 			if event.venue?.address != nil {
 				Field(header: "Where", text: event.venue?.addressDisplay)
-				MapView(address: event.venue!.address.shortDisplay)
+				MapView(address: event.venue!.address!.shortDisplay)
 					.frame(height: 240)
 					.cornerRadius(8)
 			}

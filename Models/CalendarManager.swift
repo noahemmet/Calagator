@@ -24,7 +24,7 @@ public class CalendarManager {
 			//			calendarEvent.eventIdentifier = String(event.id)
 			calendarEvent.calendar = self.store.defaultCalendarForNewEvents
 			calendarEvent.notes = event.eventHTML
-			calendarEvent.location = event.venue?.address.shortDisplay
+			calendarEvent.location = event.venue?.address?.shortDisplay
 			do {
 				try self.store.save(calendarEvent, span: .thisEvent)
 				self.calendarEventIDsByEventIDs[String(event.id)] = calendarEvent.eventIdentifier

@@ -2,7 +2,7 @@ import Common
 import SwiftUI
 import Combine
 
-public struct EventsByDay: Codable, Hashable, Identifiable {
+public struct EventsByDay: Decodable, Hashable, Identifiable {
 	static let dateFormatter: DateFormatter = {
 		let df = DateFormatter()
 		df.dateStyle = .long

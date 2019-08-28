@@ -2,13 +2,17 @@ import Foundation
 import SwiftSoup
 import Common
 
-public struct Venue: Codable, Hashable, Identifiable {
+public struct Venue: Hashable, Identifiable {
 	public var id: Int
 	public var name: String
-	public var address: Address
+	public var address: Address?
 	
 	public var addressDisplay: String {
-		return name + "\n" + address.shortDisplay
+		if let shortDisplay = address?.shortDisplay {
+			return name + "\n" + shortDisplay
+		} else {
+			return name
+		}
 	}
 
 	public init(id: Int, name: String, address: Address) {
@@ -24,6 +28,35 @@ public struct Venue: Codable, Hashable, Identifiable {
 		self.init(id: 0, name: name, address: address)
 		// Element <div class="location vcard">
 //		<a href="/venues/202396329" class="url"> <span class="fn org">New Relic</span> </a>
+	}
+}
 
+extension Venue: Decodable {
+	enum CodingKeys: String, CodingKey {
+		case id
+		case name = "title"
+		
+		case street = "street_address"
+		case locality
+		case region
+		case postalCode = "postal_code"
+		case country
+	}
+	
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.id = try container.decode(Int.self, forKey: .id)
+		self.name = try container.decode(String.self, forKey: .name)
+		
+		do {
+			let street = try container.decode(String.self, forKey: .street)
+			let locality = try container.decode(String.self, forKey: .locality)
+			let region = try container.decode(String.self, forKey: .region)
+			let postalCode = try container.decode(String.self, forKey: .postalCode)
+			let country = try container.decode(String.self, forKey: .country)
+			self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
+		} catch let error {
+			print(error)
+		}
 	}
 }

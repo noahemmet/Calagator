@@ -11,7 +11,7 @@ public struct MainTabView : View {
 	
 	public init() { }
 	
-	@State private var selection = Tab.events
+	@State private var selection = Tab.venue
 	let eventsLoadingView = EventsLoadingView()
 	let venuesLoadingView = VenuesLoadingView()
 	

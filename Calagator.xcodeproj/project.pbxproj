@@ -25,7 +25,7 @@
 		864A2FBC22B8DEF60024B2CD /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		864A2FC022B8DF060024B2CD /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FBF22B8DF060024B2CD /* Optional+Extensions.swift */; };
 		864A2FC222B8DF150024B2CD /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC122B8DF150024B2CD /* Error+Extensions.swift */; };
-		864A2FC422B8E4750024B2CD /* DayEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC322B8E4750024B2CD /* DayEvents.swift */; };
+		864A2FC422B8E4750024B2CD /* EventsByDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC322B8E4750024B2CD /* EventsByDay.swift */; };
 		864A2FC622B8ED700024B2CD /* RandomAccessCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */; };
 		864A2FC922B8F7760024B2CD /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FC822B8F7760024B2CD /* AddEventView.swift */; };
 		864A2FCC22B8F8910024B2CD /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FCB22B8F8910024B2CD /* SafariView.swift */; };
@@ -231,7 +231,7 @@
 		864A2FAA22B8DEEB0024B2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		864A2FBF22B8DF060024B2CD /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		864A2FC122B8DF150024B2CD /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
-		864A2FC322B8E4750024B2CD /* DayEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEvents.swift; sourceTree = "<group>"; };
+		864A2FC322B8E4750024B2CD /* EventsByDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsByDay.swift; sourceTree = "<group>"; };
 		864A2FC522B8ED700024B2CD /* RandomAccessCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+Extensions.swift"; sourceTree = "<group>"; };
 		864A2FC822B8F7760024B2CD /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		864A2FCB22B8F8910024B2CD /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 				864EAE1322B8B36800903CC5 /* Info.plist */,
 				864EAE3022B8B70400903CC5 /* Event.swift */,
 				86611D3F22B9D97900D4D2FD /* CalendarManager.swift */,
-				864A2FC322B8E4750024B2CD /* DayEvents.swift */,
+				864A2FC322B8E4750024B2CD /* EventsByDay.swift */,
 				864EAE3222B8B78000903CC5 /* Tag.swift */,
 				864EAE4022B8BDE300903CC5 /* Link.swift */,
 				864EAE3422B8B85E00903CC5 /* Address.swift */,
@@ -995,7 +995,7 @@
 				86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */,
 				864EAE3122B8B70400903CC5 /* Event.swift in Sources */,
 				864EAE4122B8BDE300903CC5 /* Link.swift in Sources */,
-				864A2FC422B8E4750024B2CD /* DayEvents.swift in Sources */,
+				864A2FC422B8E4750024B2CD /* EventsByDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
