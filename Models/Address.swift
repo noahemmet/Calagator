@@ -2,6 +2,10 @@ import Foundation
 import SwiftSoup
 import Common
 
+extension Address {
+	public static let debug = try! Address(street: "Main Street", locality: "Locality", region: "Region", postalCode: "90210", country: "US", googleMapsURL: nil)
+}
+
 public struct Address: Codable, Hashable {
 	public var street: String
 	public var locality: String

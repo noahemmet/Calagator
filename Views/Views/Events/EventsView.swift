@@ -12,7 +12,7 @@ public struct EventsView : View {
 						NavigationLink(destination: EventDetailView(event)) {
 							EventRow(event: event)
 						}
-						.isDetailLink(true)
+//						.isDetailLink(true)
 					}
 				}
 			}

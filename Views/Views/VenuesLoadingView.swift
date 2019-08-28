@@ -1,20 +1,21 @@
 import SwiftUI
 import Models
 
-struct EventLoadingView : View {
-	@ObservedObject var eventFetcher = EventFetcher()
+struct VenuesLoadingView : View {
+	@ObservedObject var venueFetcher = VenueFetcher()
 	
 	@State private var showAddEvent = false
 	
 	private var stateContent: AnyView {
-		switch eventFetcher.state {
+		switch venueFetcher.state {
 		case .loading:
 			return AnyView(
 				Text("Loading…")
+					.foregroundColor(.secondary)
 			)
-		case .success(let eventsByDay):
+		case .success(let venues):
 			return AnyView(
-				EventsView(allEventsByDay: eventsByDay)
+				VenuesView(venues: venues)
 			)
 		case .failure(let error):
 			return AnyView(

@@ -3,7 +3,7 @@ import SFSafeSymbols
 import Models
 import Common
 
-public struct MainTabbedView : View {
+public struct MainTabView : View {
 	public enum Tab: Int {
 		case events
 		case venue
@@ -11,30 +11,33 @@ public struct MainTabbedView : View {
 	
 	public init() { }
 	
-	@State private var selection = 0
-	@State private var selectedEvent: Event?
-	let eventLoadingView = EventLoadingView()
+	@State private var selection = Tab.events
+	let eventsLoadingView = EventsLoadingView()
+	let venuesLoadingView = VenuesLoadingView()
 	
 	public var body: some View {
 		TabView(selection: $selection){
-			// Events
+			// MARK: Events
 			NavigationView {
-				eventLoadingView
+				eventsLoadingView
 					.onAppear {
-						self.eventLoadingView.eventFetcher.fetch()
+						self.eventsLoadingView.eventFetcher.fetch()
 				}
 				EmptyView()
 			}
+			.tag(Tab.events)
 			.tabItem {
 				Image(systemSymbol: .calendar)
 				Text("Events")
 			}
-			.tag(Tab.events)
 			
-			
-			// Venues
+			// MARK: Venues
 			NavigationView {
-				VenuesView()
+				venuesLoadingView
+					.onAppear {
+						self.venuesLoadingView.venueFetcher.fetch()
+				}
+				EmptyView()
 			}
 			.tag(Tab.venue)
 			.tabItem {
@@ -48,7 +51,7 @@ public struct MainTabbedView : View {
 #if DEBUG
 struct MainTabbedView_Previews : PreviewProvider {
 	static var previews: some View {
-		MainTabbedView()
+		MainTabView()
 	}
 }
 #endif

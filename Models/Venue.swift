@@ -2,7 +2,7 @@ import Foundation
 import SwiftSoup
 import Common
 
-public struct Venue: Codable, Hashable {
+public struct Venue: Codable, Hashable, Identifiable {
 	public var id: Int
 	public var name: String
 	public var address: Address

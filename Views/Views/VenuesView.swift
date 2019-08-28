@@ -7,17 +7,28 @@
 //
 
 import SwiftUI
+import Models
 
-struct VenuesView : View {
-    var body: some View {
-        Text("Venues!")
+public struct VenuesView : View {
+	public var venues: [Venue]
+	public var body: some View {
+		List {
+			ForEach(venues) { venue in
+					NavigationLink(destination: VenueDetailView(venue: venue)) {
+						VenueRow(venue: venue)
+					}
+					//						.isDetailLink(true)
+					}
+				}
+//			}
+			.listStyle(GroupedListStyle())
     }
 }
 
 #if DEBUG
 struct VenuesView_Previews : PreviewProvider {
     static var previews: some View {
-        VenuesView()
+        VenuesView(venues: [])
     }
 }
 #endif
