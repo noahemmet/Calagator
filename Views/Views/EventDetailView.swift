@@ -4,6 +4,10 @@ import EventKit
 
 public struct EventDetailView : View {
 	public var event: Event
+
+	public init(event: Event) {
+		self.event = event
+	}
 	
 	public var body: some View {
 		List {

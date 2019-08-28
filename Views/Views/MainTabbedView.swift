@@ -12,45 +12,54 @@ import Models
 import Common
 
 public struct MainTabbedView : View {
+	public enum Tab: Int {
+		case events
+		case venue
+	}
+	
 	public init() { }
 	
 	@State private var selection = 0
+	@State private var selectedEvent: Event?
 	@State private var isShowingAddEvent = false
 	let eventLoadingView = EventLoadingView()
 	
 	public var body: some View {
 		TabView(selection: $selection){
+			// Events
 			NavigationView {
-				// Events
 				eventLoadingView
 					.onAppear {
 						self.eventLoadingView.eventFetcher.fetch()
-				}
-				.tabItem {
-					Image(systemSymbol: .calendar)
-					Text("Events")
 				}
 				.navigationBarTitle(Text("Calagator"), displayMode: .inline)
 				.navigationBarItems(trailing:
 					Button(action: showAddEvent) {
 						Image(systemSymbol: .plus)
 				})
-					.tag(0)
-					.sheet(isPresented: $isShowingAddEvent,
-								 content: {
-									SafariView(url: URL(string: "http://calagator.org/events/new")!)
-				})
+				
+				EventDetailView(event: selectedEvent)
 			}
+			.navigationViewStyle(DoubleColumnNavigationViewStyle())
+			.tabItem {
+				Image(systemSymbol: .calendar)
+				Text("Events")
+			}
+			.tag(Tab.events)
+			.sheet(isPresented: $isShowingAddEvent,
+						 content: {
+							SafariView(url: URL(string: "http://calagator.org/events/new")!)
+			})
 			
 			// Venues
-			VenuesView()
-				.font(.title)
-				//                .tabItemLabel(Image("map"))
-				.tabItem {
-					Image(systemSymbol: .map)
-					Text("Venues")
+			NavigationView {
+				VenuesView()
 			}
-			.tag(1)
+			.tag(Tab.venue)
+			.tabItem {
+				Image(systemSymbol: .map)
+				Text("Venues")
+			}
 		}
 	}
 	
