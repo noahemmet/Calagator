@@ -6,6 +6,7 @@ public struct EventDetailView : View {
 	public var event: Event
 	
 	@State private var showInSafari: Link?
+	@State private var showMapMenu: Bool = false
 	
 	public init(_ event: Event) {
 		self.event = event
@@ -16,33 +17,45 @@ public struct EventDetailView : View {
 			Text(event.title)
 				.font(.title)
 				.lineLimit(nil)
-			Field(header: "When", text: event.dateTimeDisplay)
-			if event.venue?.address != nil {
-				Field(header: "Where", text: event.venue?.addressDisplay)
-				MapView(address: event.venue?.address?.shortDisplay)
-					.frame(height: 240)
-					.cornerRadius(8)
-			}
-			Field(header: "What", text: event.eventDescription)
-			if self.event.links.isEmpty == false {
-				Field(header: "Links", content: {
-					ForEach(self.event.links) { link in
-						Button(action: { self.showInSafari = link } ) {
-							Text(link.name)
-						}
-					}
-				})
-			}
-		}
-		.navigationBarItems(trailing:
-			HStack(spacing: 16) {
-				Button(action: addOrRemoveCalendar) {
+			Field(header: "When", text: event.dateTimeDisplay, trailing: {
+				Button(action: self.addOrRemoveCalendar) {
 					if CalendarManager().calendarEvent(for: self.event) == nil {
 						Image(systemSymbol: .calendarBadgePlus)
 					} else {
 						Image(systemSymbol: .calendarBadgeMinus)
 					}
 				}
+			})
+			if event.venue?.address != nil {
+				Field(header: "Where", text: event.venue?.addressDisplay, trailing: {
+					Button(action: { self.showMapMenu = true }) {
+						Image(systemSymbol: .map)
+					}
+				})
+				MapView(address: event.venue?.address?.shortDisplay)
+					.frame(height: 240)
+					.cornerRadius(8)
+			}
+			Field(header: "What", text: event.eventDescription)
+			if self.event.links.isEmpty == false {
+//				Field(header: "Links", content: {
+//					ForEach(self.event.links) { link in
+//						Button(action: { self.showInSafari = link } ) {
+//							Text(link.name)
+//						}
+//					}
+//				})
+			}
+		}
+		.navigationBarItems(trailing:
+			HStack(spacing: 16) {
+//				Button(action: addOrRemoveCalendar) {
+//					if CalendarManager().calendarEvent(for: self.event) == nil {
+//						Image(systemSymbol: .calendarBadgePlus)
+//					} else {
+//						Image(systemSymbol: .calendarBadgeMinus)
+//					}
+//				}
 				// Open in Safari
 				Button(action: {
 					self.showInSafari = Link(url: self.event.pageURL)
@@ -59,6 +72,12 @@ public struct EventDetailView : View {
 						 content: { link in
 							SafariView(url: link.url)
 			})
+			.actionSheet(isPresented: $showMapMenu) {
+				ActionSheet(title: Text(event.venue?.addressDisplay ?? ""), message: nil, buttons: [
+					.default(Text("Show in Maps")),
+					.cancel(Text("Cancel"))
+				])
+		}
 	}
 	
 	private func addOrRemoveCalendar() {
@@ -73,7 +92,6 @@ public struct EventDetailView : View {
 				print(error as Any)
 			}
 		}
-
 	}
 	
 }
