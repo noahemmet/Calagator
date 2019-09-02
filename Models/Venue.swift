@@ -29,8 +29,6 @@ public struct Venue: Hashable, Identifiable {
 		let name = try location.select("span.fn").text()
 		let address = try Address(htmlElement: location)
 		self.init(id: 0, name: name, address: address)
-		// Element <div class="location vcard">
-//		<a href="/venues/202396329" class="url"> <span class="fn org">New Relic</span> </a>
 	}
 }
 
@@ -40,6 +38,11 @@ extension Venue: Codable {
 		case name = "title"
 		
 		case address
+		case street = "street_address"
+		case locality
+		case region
+		case postalCode = "postal_code"
+		case country
 	}
 	
 	public init(from decoder: Decoder) throws {
@@ -50,15 +53,19 @@ extension Venue: Codable {
 		
 		do {
 			self.address = try container.decode(Address.self, forKey: .address)
-//			let addressContainer = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .address)
-//			let street = try container.decode(String.self, forKey: .street)
-//			let locality = try container.decode(String.self, forKey: .locality)
-//			let region = try container.decode(String.self, forKey: .region)
-//			let postalCode = try container.decode(String.self, forKey: .postalCode)
-//			let country = try container.decode(String.self, forKey: .country)
-//			self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
-		} catch let error {
-			print(error)
+			
+		} catch {
+			// If address can't be decoded, it may be new json, which should be read directly.
+			do {
+				let street = try container.decode(String.self, forKey: .street)
+				let locality = try container.decode(String.self, forKey: .locality)
+				let region = try container.decode(String.self, forKey: .region)
+				let postalCode = try container.decode(String.self, forKey: .postalCode)
+				let country = try container.decode(String.self, forKey: .country)
+				self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
+			} catch {
+				
+			}
 		}
 	}
 	
