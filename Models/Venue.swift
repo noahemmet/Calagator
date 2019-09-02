@@ -34,11 +34,12 @@ public struct Venue: Hashable, Identifiable {
 	}
 }
 
-extension Venue: Decodable {
+extension Venue: Codable {
 	enum CodingKeys: String, CodingKey {
 		case id
 		case name = "title"
 		
+		case address
 		case street = "street_address"
 		case locality
 		case region
@@ -62,5 +63,12 @@ extension Venue: Decodable {
 		} catch let error {
 			print(error)
 		}
+	}
+	
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(id, forKey: .id)
+		try container.encode(name, forKey: .name)
+		try container.encode(address, forKey: .address)
 	}
 }

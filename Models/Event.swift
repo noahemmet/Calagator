@@ -3,7 +3,7 @@ import FeedKit
 import SwiftSoup
 import Common
 
-public struct Event: Decodable, Hashable, Identifiable {
+public struct Event: Codable, Hashable, Identifiable {
 	static let atomDF: DateFormatter = {
 		let df = DateFormatter()
 		df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
