@@ -1,6 +1,7 @@
 import SwiftUI
 import Models
 import EventKit
+import MapKit
 
 public struct EventDetailView : View {
 	public var event: Event
@@ -74,7 +75,7 @@ public struct EventDetailView : View {
 			})
 			.actionSheet(isPresented: $showMapMenu) {
 				ActionSheet(title: Text(event.venue?.addressDisplay ?? ""), message: nil, buttons: [
-					.default(Text("Show in Maps")),
+					.default(Text("Show in Maps"), action: { self.launchMaps(for: self.event.venue!.addressDisplay)}),
 					.cancel(Text("Cancel"))
 				])
 		}
@@ -94,5 +95,16 @@ public struct EventDetailView : View {
 		}
 	}
 	
+	private func launchMaps(for address: String) {
+		let geocoder = CLGeocoder()
+		geocoder.geocodeAddressString(address) { 
+			(placemarks, error) in
+			guard error == nil, let placemark = placemarks?.first else {
+				return
+			}
+			let item = MKMapItem(placemark: .init(placemark: placemark))
+			item.openInMaps(launchOptions: nil)
+		}
+	}
 }
 
