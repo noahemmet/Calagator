@@ -17,6 +17,14 @@ public struct Event: Codable, Hashable, Identifiable {
 		return df
 	}()
 	
+	static let dayDF: DateFormatter = {
+		let df = DateFormatter()
+		df.dateStyle = .long
+		df.doesRelativeDateFormatting = true
+		df.locale = Locale.current
+		return df
+	}()
+	
 	public var id: Int
 	public var title: String
 	public var summary: String
@@ -36,10 +44,17 @@ public struct Event: Codable, Hashable, Identifiable {
 		guard let end = end else { return "" }
 		return Event.timeDF.string(from: end)
 	}
+	
 	public var totalTime: String {
 		let endTime = self.endTime
-		return startTime + (endTime.isEmpty ? "" : "\n" + endTime)		
+		return startTime + (endTime.isEmpty ? "" : " — " + endTime)		
 	}
+	
+	public var dateTimeDisplay: String {
+		let dateDisplay = Event.dayDF.string(from: start)
+		return dateDisplay + "\n" + totalTime		
+	}
+	
 	public var tags: [Tag]
 
 	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, eventHTML: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {

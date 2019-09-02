@@ -16,10 +16,10 @@ public struct EventDetailView : View {
 			Text(event.title)
 				.font(.title)
 				.lineLimit(nil)
-			Field(header: "When", text: event.totalTime)
+			Field(header: "When", text: event.dateTimeDisplay)
 			if event.venue?.address != nil {
 				Field(header: "Where", text: event.venue?.addressDisplay)
-				MapView(address: event.venue!.address!.shortDisplay)
+				MapView(address: event.venue?.address?.shortDisplay)
 					.frame(height: 240)
 					.cornerRadius(8)
 			}

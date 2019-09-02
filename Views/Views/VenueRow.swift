@@ -8,7 +8,7 @@ public struct VenueRow : View {
 	public var body: some View {
 		VStack(alignment: .leading) {
 			Text(venue.name)
-			Text(venue.addressDisplay)
+			Text(venue.address?.shortDisplay ?? "")
 				.foregroundColor(.secondary)
 				.font(.footnote)
 				.lineLimit(Int.max)

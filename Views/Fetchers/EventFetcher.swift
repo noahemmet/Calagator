@@ -61,16 +61,18 @@ public class EventFetcher: ObservableObject {
 	
 	private static func events(from atomEntries: [AtomFeedEntry]) throws -> [Event] {
 		let events = try atomEntries.compactMap { try Event(atomEntry: $0) }
-		return events
+		let now = Date()
+		let filtered = events.filter { $0.start >= now }
+		return filtered
 	}
 	
 	private func getCachedEvents() throws -> [EventsByDay] {
 		let data = try FileManager.default.contents(atPath: EventFetcher.cacheURL.path).unwrap(orThrow: "No cached events found")
 		let decoder = JSONDecoder()
 		let eventsByDay = try decoder.decode([EventsByDay].self, from: data)
-//		let now = Date()
-//		let filtered = eventsByDay.filter { $0.date > now }
-		return eventsByDay
+		let now = Date()
+		let filtered = eventsByDay.filter { $0.date >= now }
+		return filtered
 	}
 	
 	private func store(_ eventsByDay: [EventsByDay]) throws {

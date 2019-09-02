@@ -11,8 +11,8 @@ public struct VenueDetailView: View {
 				.font(.title)
 				.lineLimit(nil)
 			if venue.address != nil {
-				Field(header: "Where", text: venue.addressDisplay)
-				MapView(address: venue.address!.shortDisplay)
+				Field(header: "Address", text: venue.address?.shortDisplay)
+				MapView(address: venue.address?.shortDisplay)
 					.frame(height: 240)
 					.cornerRadius(8)
 			}
