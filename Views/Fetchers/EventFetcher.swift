@@ -5,6 +5,7 @@ import Models
 
 /// Fetches events.
 public class EventFetcher: ObservableObject {
+	private static let cacheURL = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("eventsByDay")
 	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 //	private static let url = URL(string: "http://calagator.org/events.atom")!
 	
@@ -19,7 +20,22 @@ public class EventFetcher: ObservableObject {
 	
 	public init() { }
 	
-	public func fetch() {
+	public func fetch(useCache: Bool) {
+		
+		if useCache {
+			DispatchQueue(label: "event cache").async {
+				do {
+					let eventsByDay = try self.getCachedEvents()
+					DispatchQueue.main.async { [weak self] in
+						guard let self = self else { return }
+						self.state = .success(eventsByDay)
+					}
+				} catch {
+					// Ignore cache errors
+				}
+			}
+		}
+		
 		let parser = FeedParser(URL: EventFetcher.url)
 		parser.parseAsync { result in
 				switch result {
@@ -27,6 +43,7 @@ public class EventFetcher: ObservableObject {
 					do {
 						let events = try EventFetcher.events(from: feed.entries ?? [])
 						let eventsByDay = EventsByDay.from(events: events)
+						try self.store(eventsByDay)
 						DispatchQueue.main.async { [weak self] in
 							guard let self = self else { return }
 							self.state = .success(eventsByDay)
@@ -42,8 +59,24 @@ public class EventFetcher: ObservableObject {
 		}
 	}
 	
-	static func events(from atomEntries: [AtomFeedEntry]) throws -> [Event] {
+	private static func events(from atomEntries: [AtomFeedEntry]) throws -> [Event] {
 		let events = try atomEntries.compactMap { try Event(atomEntry: $0) }
 		return events
 	}
+	
+	private func getCachedEvents() throws -> [EventsByDay] {
+		let data = try FileManager.default.contents(atPath: EventFetcher.cacheURL.path).unwrap(orThrow: "No cached events found")
+		let decoder = JSONDecoder()
+		let eventsByDay = try decoder.decode([EventsByDay].self, from: data)
+//		let now = Date()
+//		let filtered = eventsByDay.filter { $0.date > now }
+		return eventsByDay
+	}
+	
+	private func store(_ eventsByDay: [EventsByDay]) throws {
+		let encoder = JSONEncoder()
+		let data = try encoder.encode(eventsByDay)
+		FileManager.default.createFile(atPath: EventFetcher.cacheURL.path, contents: data, attributes: nil)
+	}
+	
 }

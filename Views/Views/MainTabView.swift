@@ -22,7 +22,7 @@ public struct MainTabView : View {
 			NavigationView {
 				eventsLoadingView
 					.onAppear {
-						self.eventsLoadingView.eventFetcher.fetch()
+						self.eventsLoadingView.eventFetcher.fetch(useCache: true)
 				}
 			}
 			.tag(Tab.events)

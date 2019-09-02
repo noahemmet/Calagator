@@ -6,7 +6,7 @@ extension Address {
 	public static let debug = try! Address(street: "Main Street", locality: "Locality", region: "Region", postalCode: "90210", country: "US", googleMapsURL: nil)
 }
 
-public struct Address: Codable, Hashable {
+public struct Address: Hashable {
 	public var street: String
 	public var locality: String
 	public var region: String
@@ -65,5 +65,15 @@ public struct Address: Codable, Hashable {
 			googleMapsURL = nil
 		}
 		try self.init(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: googleMapsURL)
+	}
+}
+
+extension Address: Codable {
+	enum CodingKeys: String, CodingKey {
+		case street = "street_address"
+		case locality
+		case region
+		case postalCode = "postal_code"
+		case country
 	}
 }

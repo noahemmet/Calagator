@@ -40,11 +40,6 @@ extension Venue: Codable {
 		case name = "title"
 		
 		case address
-		case street = "street_address"
-		case locality
-		case region
-		case postalCode = "postal_code"
-		case country
 	}
 	
 	public init(from decoder: Decoder) throws {
@@ -54,12 +49,14 @@ extension Venue: Codable {
 		self.name = try container.decode(String.self, forKey: .name)
 		
 		do {
-			let street = try container.decode(String.self, forKey: .street)
-			let locality = try container.decode(String.self, forKey: .locality)
-			let region = try container.decode(String.self, forKey: .region)
-			let postalCode = try container.decode(String.self, forKey: .postalCode)
-			let country = try container.decode(String.self, forKey: .country)
-			self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
+			self.address = try container.decode(Address.self, forKey: .address)
+//			let addressContainer = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .address)
+//			let street = try container.decode(String.self, forKey: .street)
+//			let locality = try container.decode(String.self, forKey: .locality)
+//			let region = try container.decode(String.self, forKey: .region)
+//			let postalCode = try container.decode(String.self, forKey: .postalCode)
+//			let country = try container.decode(String.self, forKey: .country)
+//			self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
 		} catch let error {
 			print(error)
 		}
