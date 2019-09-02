@@ -1,11 +1,3 @@
-//
-//  VenueDetailView.swift
-//  Views
-//
-//  Created by Noah Emmet on 8/27/19.
-//  Copyright © 2019 Noah Emmet. All rights reserved.
-//
-
 import SwiftUI
 import Models
 

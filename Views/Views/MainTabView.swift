@@ -35,7 +35,7 @@ public struct MainTabView : View {
 			NavigationView {
 				venuesLoadingView
 					.onAppear {
-						self.venuesLoadingView.venueFetcher.fetch()
+						self.venuesLoadingView.venueFetcher.fetch(useCache: true)
 				}
 			}
 			.tag(Tab.venue)
