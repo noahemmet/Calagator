@@ -7,7 +7,7 @@ struct EventsLoadingView : View {
 	@State private var showAddEvent = false
 	
 	private var stateContent: AnyView {
-		switch eventFetcher.eventState {
+		switch eventFetcher.state {
 		case .loading:
 			return AnyView(
 				Text("Loading…")

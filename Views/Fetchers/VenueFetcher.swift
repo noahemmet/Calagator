@@ -41,9 +41,13 @@ public class VenueFetcher: ObservableObject {
 				guard let data = data else { return }
 				
 				let venues = try JSONDecoder().decode([Venue].self, from: data)
-				try self.store(venues)
+				// Group alphabetically
+				let sorted = venues.sorted { one, two in
+					return one.name < two.name
+				}
+				try self.store(sorted)
 				DispatchQueue.main.async {
-					self.state = .success(venues)
+					self.state = .success(sorted)
 				}
 			} catch {
 				DispatchQueue.main.async {
