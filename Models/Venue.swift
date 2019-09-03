@@ -8,6 +8,7 @@ public typealias VenuesSortedAlphabetically = [String: [Venue]]
 public struct Venue: Hashable, Identifiable {
 	public var id: Int
 	public var name: String
+	public var venueDescription: String?
 	public var address: Address?
 	/// The URL to open in Calagator.org
 	public var pageURL: URL
@@ -25,11 +26,14 @@ public struct Venue: Hashable, Identifiable {
 			return name
 		}
 	}
+	
+	public var eventsByDay: [EventsByDay] = []
 
-	public init(id: Int, name: String, address: Address) {
+	public init(id: Int, name: String, description: String, address: Address) {
 		self.id = id
 		self.name = name
 		self.address = address
+		self.venueDescription = description
 		self.pageURL = URL(string: "http://calagator.org/venues/\(id)")!
 	}
 	
@@ -37,7 +41,7 @@ public struct Venue: Hashable, Identifiable {
 		let location = try element.select("div.location").first.unwrap(orThrow: "No location found")
 		let name = try location.select("span.fn").text()
 		let address = try Address(htmlElement: location)
-		self.init(id: 0, name: name, address: address)
+		self.init(id: 0, name: name, description: "", address: address)
 	}
 }
 
@@ -45,6 +49,7 @@ extension Venue: Codable {
 	enum CodingKeys: String, CodingKey {
 		case id
 		case name = "title"
+		case venueDescription = "description"
 		
 		case address
 		case street = "street_address"
@@ -59,6 +64,7 @@ extension Venue: Codable {
 		self.id = try container.decode(Int.self, forKey: .id)
 		self.pageURL = URL(string: "http://calagator.org/events/\(id)")!
 		self.name = try container.decode(String.self, forKey: .name)
+		self.venueDescription = try container.decodeIfPresent(String.self, forKey: .venueDescription)
 		
 		do {
 			self.address = try container.decode(Address.self, forKey: .address)
@@ -68,12 +74,11 @@ extension Venue: Codable {
 			do {
 				let street = try container.decode(String.self, forKey: .street)
 				let locality = try container.decode(String.self, forKey: .locality)
-				let region = try container.decode(String.self, forKey: .region)
-				let postalCode = try container.decode(String.self, forKey: .postalCode)
-				let country = try container.decode(String.self, forKey: .country)
+				let region = try container.decodeIfPresent(String.self, forKey: .region) ?? ""
+				let postalCode = try container.decodeIfPresent(String.self, forKey: .postalCode) ?? ""
+				let country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
 				self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
 			} catch {
-				
 			}
 		}
 	}
@@ -82,6 +87,7 @@ extension Venue: Codable {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		try container.encode(id, forKey: .id)
 		try container.encode(name, forKey: .name)
+		try container.encode(venueDescription, forKey: .venueDescription)
 		try container.encode(address, forKey: .address)
 	}
 }

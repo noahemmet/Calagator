@@ -23,9 +23,9 @@ public struct Address: Hashable {
 	}
 
 	public init(street: String, locality: String, region: String, postalCode: String, country: String, googleMapsURL: URL?) throws {
-		guard !street.isEmpty, !locality.isEmpty else {
-			throw BasicError.reason("empty address")
-		}
+//		guard !street.isEmpty, !locality.isEmpty else {
+//			throw BasicError.reason("empty address")
+//		}
 		self.street = street
 		self.locality = locality
 		self.region = region
