@@ -16,6 +16,8 @@ public struct VenueDetailView: View {
 					.frame(height: 240)
 					.cornerRadius(8)
 			}
+			
+			EventsView(allEventsByDay: venue.eventsByDay)
 		}
 		.navigationBarItems(trailing:
 			HStack(spacing: 16) {
@@ -37,6 +39,6 @@ public struct VenueDetailView: View {
 
 struct VenueDetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		VenueDetailView(venue: Venue(id: 0, name: "Venue Name", address: .debug))
+		VenueDetailView(venue: Venue(id: 0, name: "Venue Name", description: "description", address: .debug))
 	}
 }
