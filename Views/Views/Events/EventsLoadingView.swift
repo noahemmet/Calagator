@@ -2,11 +2,12 @@ import SwiftUI
 import Models
 
 struct EventsLoadingView : View {
-	@ObservedObject var eventFetcher = EventFetcher()
+	var eventFetcher = EventFetcher()
 	
 	@State private var showAddEvent = false
 	
 	private var stateContent: AnyView {
+		print(eventFetcher)
 		switch eventFetcher.state {
 		case .loading:
 			return AnyView(
