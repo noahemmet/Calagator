@@ -7,14 +7,14 @@ import Models
 public class EventFetcher: ObservableObject {
 	private static let cacheURL = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("eventsByDay")
 	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
-//	private static let url = URL(string: "http://calagator.org/events.atom")!
+	//	private static let url = URL(string: "http://calagator.org/events.atom")!
 	
-	@Published public var state: ViewState<[EventsByDay]> = .loading {
+	@Published public var state: ViewState<SortedEvents> = .loading {
 		willSet {
-//			if case .success = oldValue {
-//				return
-//			}
-				self.objectWillChange.send()
+			//			if case .success = oldValue {
+			//				return
+			//			}
+			self.objectWillChange.send()
 		}
 	}
 	
@@ -38,24 +38,28 @@ public class EventFetcher: ObservableObject {
 		
 		let parser = FeedParser(URL: EventFetcher.url)
 		parser.parseAsync { result in
-				switch result {
-				case .atom(let feed):
-					do {
-						let events = try EventFetcher.events(from: feed.entries ?? [])
-						let eventsByDay = EventsByDay.from(events: events)
-						try self.store(eventsByDay)
-						DispatchQueue.main.async { [weak self] in
-							guard let self = self else { return }
-							self.state = .success(eventsByDay)
-						}
-					} catch let error {
-						self.state = .failure(error.localizedDescription)
+			
+			print(Date())
+			switch result {
+			case .atom(let feed):
+				do {
+					let events = try EventFetcher.events(from: feed.entries ?? [])
+					let sortedEvents = SortedEvents(events: events)
+					try self.store(sortedEvents)
+					DispatchQueue.main.async { [weak self] in
+						guard let self = self else { return }
+						self.state = .success(sortedEvents)
 					}
-				case .failure(let error):
+				} catch let error {
 					self.state = .failure(error.localizedDescription)
-				default:
-					self.state = .failure("Unrecognized data")
 				}
+			case .failure(let error):
+				self.state = .failure(error.localizedDescription)
+			default:
+				self.state = .failure("Unrecognized data")
+			}
+			
+			print(Date())
 		}
 	}
 	
@@ -66,18 +70,18 @@ public class EventFetcher: ObservableObject {
 		return filtered
 	}
 	
-	private func getCachedEvents() throws -> [EventsByDay] {
+	private func getCachedEvents() throws -> SortedEvents {
 		let data = try FileManager.default.contents(atPath: EventFetcher.cacheURL.path).unwrap(orThrow: "No cached events found")
 		let decoder = JSONDecoder()
-		let eventsByDay = try decoder.decode([EventsByDay].self, from: data)
+		let sortedEvents = try decoder.decode(SortedEvents.self, from: data)
 		let now = Date()
-		let filtered = eventsByDay.filter { $0.date >= now }
+		let filtered = sortedEvents.removingPastEvents(after: now)
 		return filtered
 	}
 	
-	private func store(_ eventsByDay: [EventsByDay]) throws {
+	private func store(_ sortedEvents: SortedEvents) throws {
 		let encoder = JSONEncoder()
-		let data = try encoder.encode(eventsByDay)
+		let data = try encoder.encode(sortedEvents)
 		FileManager.default.createFile(atPath: EventFetcher.cacheURL.path, contents: data, attributes: nil)
 	}
 	

@@ -17,7 +17,7 @@ public struct VenueDetailView: View {
 					.cornerRadius(8)
 			}
 			
-			EventsView(allEventsByDay: venue.eventsByDay)
+			EventsView(sortedEvents: SortedEvents(byDay: venue.eventsByDay, byPublished: []))
 		}
 		.navigationBarItems(trailing:
 			HStack(spacing: 16) {
