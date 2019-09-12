@@ -15,21 +15,23 @@ public struct VenuesView : View {
 	public var body: some View {
 		List {
 			ForEach(venues) { venue in
-					NavigationLink(destination: VenueDetailView(venue: venue)) {
-						VenueRow(venue: venue)
-					}
-					//						.isDetailLink(true)
-					}
+				NavigationLink(destination: VenueDetailView(venue: venue)) {
+					VenueRow(venue: venue)
 				}
-//			}
-			.listStyle(GroupedListStyle())
-    }
+			}
+		}
+		.listStyle(GroupedListStyle())
+	}
 }
 
 #if DEBUG
 struct VenuesView_Previews : PreviewProvider {
-    static var previews: some View {
-        VenuesView(venues: [])
-    }
+	static var previews: some View {
+		NavigationView {
+			VenuesView(venues: [
+				.init(id: 0, name: "Venue", description: "Venue Description", address: .debug)
+			])
+		}
+	}
 }
 #endif

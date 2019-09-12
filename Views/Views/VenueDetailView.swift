@@ -39,6 +39,8 @@ public struct VenueDetailView: View {
 
 struct VenueDetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		VenueDetailView(venue: Venue(id: 0, name: "Venue Name", description: "description", address: .debug))
+		NavigationView {
+			VenueDetailView(venue: Venue(id: 0, name: "Venue Name", description: "description", address: .debug))
+		}
 	}
 }
