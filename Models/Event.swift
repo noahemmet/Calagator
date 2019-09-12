@@ -35,6 +35,7 @@ public struct Event: Codable, Hashable, Identifiable {
 	public var links: [Link]
 	public var venue: Venue?
 	public var venueDetails: String?
+	public var published: Date?
 	public var start: Date
 	public var startTime: String {
 		return Event.timeDF.string(from: start)
@@ -57,7 +58,7 @@ public struct Event: Codable, Hashable, Identifiable {
 	
 	public var tags: [Tag]
 
-	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, eventHTML: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, start: Date, end: Date?, tags: [Tag] = []) {
+	public init(id: Int, title: String, summary: String, eventDescription: String? = nil, eventHTML: String? = nil, links: [Link] = [], venue: Venue? = nil, venueDetails: String? = nil, published: Date? = nil, start: Date, end: Date?, tags: [Tag] = []) {
 		self.id = id
 		self.title = title
 		self.summary = summary
@@ -67,6 +68,7 @@ public struct Event: Codable, Hashable, Identifiable {
 		self.links = links
 		self.venue = venue
 		self.venueDetails = venueDetails
+		self.published = published
 		self.start = start
 		self.end = end
 		self.tags = tags
@@ -94,6 +96,8 @@ extension Event {
 		} else {
 			venue = nil
 		}
+		
+		let published = atomEntry.published
 		
 		/* Example dates:
 			<time class="dtstart dt-start" title="2019-06-17T17:30:00" datetime="2019-06-17T17:30:00">Monday, June 17, 2019 from 5:30</time>–
@@ -127,6 +131,6 @@ extension Event {
 		// This crashes on an empty string.
 		let eventHTML = description.isEmpty() ? nil : try description.html()
 
-		self.init(id: id, title: title, summary: summary, eventDescription: eventDescription, eventHTML: eventHTML, links: links, venue: venue, venueDetails: nil, start: start, end: end, tags: [])
+		self.init(id: id, title: title, summary: summary, eventDescription: eventDescription, eventHTML: eventHTML, links: links, venue: venue, venueDetails: nil, published: published, start: start, end: end, tags: [])
 	}
 }
