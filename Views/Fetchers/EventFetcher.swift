@@ -6,8 +6,8 @@ import Models
 /// Fetches events.
 public class EventFetcher: ObservableObject {
 	private static let cacheURL = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("eventsByDay")
-	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
-	//	private static let url = URL(string: "http://calagator.org/events.atom")!
+//	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
+		private static let url = URL(string: "http://calagator.org/events.atom")!
 	
 	@Published public var state: ViewState<SortedEvents> = .loading {
 		willSet {

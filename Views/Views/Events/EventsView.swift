@@ -7,7 +7,7 @@ public struct EventsView : View {
 	
 	public var body: some View {
 		List {
-			ForEach(sortedEvents.byPublished) { eventsByDay in
+			ForEach(sortedEvents.byDay) { eventsByDay in
 				Section(header: Text(eventsByDay.dateString).font(.headline)) {
 					ForEach(eventsByDay.events) { event in
 						NavigationLink(destination: EventDetailView(event)) {

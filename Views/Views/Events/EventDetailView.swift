@@ -30,7 +30,7 @@ public struct EventDetailView : View {
 			if event.venue?.address != nil {
 				Field(header: "Where", text: event.venue?.addressDisplay, trailing: {
 					Button(action: { self.showMapMenu = true }) {
-						Image(systemSymbol: .map)
+						Image(systemSymbol: .arrowUpRightDiamond)
 					}
 				})
 				MapView(address: event.venue?.address?.shortDisplay)
