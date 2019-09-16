@@ -134,3 +134,7 @@ extension Event {
 		self.init(id: id, title: title, summary: summary, eventDescription: eventDescription, eventHTML: eventHTML, links: links, venue: venue, venueDetails: nil, published: published, start: start, end: end, tags: [])
 	}
 }
+
+extension Event {
+  public static let debug = Event(id: 0, title: "Event Title", summary: "Event Summary", eventDescription: "Event Description", eventHTML: nil, links: [], venue: .debug, venueDetails: "Venue Details", published: nil, start: Date(), end: Date().addingTimeInterval(60*60), tags: [])
+}

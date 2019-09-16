@@ -108,3 +108,10 @@ public struct EventDetailView : View {
 	}
 }
 
+struct EventDetailView_Previews: PreviewProvider {
+  static var previews: some View {
+    NavigationView {
+      EventDetailView(.debug)
+    }
+  }
+}

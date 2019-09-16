@@ -91,3 +91,7 @@ extension Venue: Codable {
 		try container.encode(address, forKey: .address)
 	}
 }
+
+extension Venue {
+  public static let debug = Venue(id: 0, name: "Venue Name", description: "Venue Description", address: .debug)
+}
