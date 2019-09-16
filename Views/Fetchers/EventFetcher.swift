@@ -39,7 +39,6 @@ public class EventFetcher: ObservableObject {
 		let parser = FeedParser(URL: EventFetcher.url)
 		parser.parseAsync { result in
 			
-			print(Date())
 			switch result {
 			case .atom(let feed):
 				do {
@@ -58,8 +57,6 @@ public class EventFetcher: ObservableObject {
 			default:
 				self.state = .failure("Unrecognized data")
 			}
-			
-			print(Date())
 		}
 	}
 	
