@@ -13,9 +13,9 @@ struct EventsLoadingView : View {
 				Text("Loading…")
 					.foregroundColor(.secondary)
 			)
-		case .success(let sortedEvents):
+		case .success(let eventStore):
 			return AnyView(
-				EventsView(sortedEvents: sortedEvents)
+				EventsView(eventStore: eventStore)
 			)
 		case .failure(let error):
 			return AnyView(

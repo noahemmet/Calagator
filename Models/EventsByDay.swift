@@ -3,7 +3,7 @@ import SwiftUI
 import Combine
 
 /// Stores an array of events, sorted by date.
-public struct EventsByDay: Codable, Hashable, Identifiable {
+public struct EventsByDay: SortedEvents, Codable, Hashable, Identifiable {
 	static let dateFormatter: DateFormatter = {
 		let df = DateFormatter()
 		df.dateStyle = .long

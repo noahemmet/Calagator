@@ -9,7 +9,7 @@ public class EventFetcher: ObservableObject {
 //	private static let url = Bundle.main.url(forResource: "Data/example_data", withExtension: "atom")!
 		private static let url = URL(string: "http://calagator.org/events.atom")!
 	
-	@Published public var state: ViewState<SortedEvents> = .loading {
+	@Published public var state: ViewState<EventStore> = .loading {
 		willSet {
 			//			if case .success = oldValue {
 			//				return
@@ -43,7 +43,7 @@ public class EventFetcher: ObservableObject {
 			case .atom(let feed):
 				do {
 					let events = try EventFetcher.events(from: feed.entries ?? [])
-					let sortedEvents = SortedEvents(events: events)
+					let sortedEvents = EventStore(events: events)
 					try self.store(sortedEvents)
 					DispatchQueue.main.async { [weak self] in
 						guard let self = self else { return }
@@ -67,16 +67,16 @@ public class EventFetcher: ObservableObject {
 		return filtered
 	}
 	
-	private func getCachedEvents() throws -> SortedEvents {
+	private func getCachedEvents() throws -> EventStore {
 		let data = try FileManager.default.contents(atPath: EventFetcher.cacheURL.path).unwrap(orThrow: "No cached events found")
 		let decoder = JSONDecoder()
-		let sortedEvents = try decoder.decode(SortedEvents.self, from: data)
+		let sortedEvents = try decoder.decode(EventStore.self, from: data)
 		let now = Date()
 		let filtered = sortedEvents.removingPastEvents(after: now)
 		return filtered
 	}
 	
-	private func store(_ sortedEvents: SortedEvents) throws {
+	private func store(_ sortedEvents: EventStore) throws {
 		let encoder = JSONEncoder()
 		let data = try encoder.encode(sortedEvents)
 		FileManager.default.createFile(atPath: EventFetcher.cacheURL.path, contents: data, attributes: nil)
