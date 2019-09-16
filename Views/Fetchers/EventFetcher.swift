@@ -25,10 +25,10 @@ public class EventFetcher: ObservableObject {
 		if useCache {
 			DispatchQueue(label: "event cache").async {
 				do {
-					let eventsByDay = try self.getCachedEvents()
+					let cachedEvents = try self.getCachedEvents()
 					DispatchQueue.main.async { [weak self] in
 						guard let self = self else { return }
-						self.state = .success(eventsByDay)
+						self.state = .success(cachedEvents)
 					}
 				} catch {
 					// Ignore cache errors
@@ -43,11 +43,11 @@ public class EventFetcher: ObservableObject {
 			case .atom(let feed):
 				do {
 					let events = try EventFetcher.events(from: feed.entries ?? [])
-					let sortedEvents = EventStore(events: events)
-					try self.store(sortedEvents)
+					let eventStore = EventStore(events: events)
+					try self.store(eventStore)
 					DispatchQueue.main.async { [weak self] in
 						guard let self = self else { return }
-						self.state = .success(sortedEvents)
+						self.state = .success(eventStore)
 					}
 				} catch let error {
 					self.state = .failure(error.localizedDescription)
@@ -70,15 +70,15 @@ public class EventFetcher: ObservableObject {
 	private func getCachedEvents() throws -> EventStore {
 		let data = try FileManager.default.contents(atPath: EventFetcher.cacheURL.path).unwrap(orThrow: "No cached events found")
 		let decoder = JSONDecoder()
-		let sortedEvents = try decoder.decode(EventStore.self, from: data)
+		let eventStore = try decoder.decode(EventStore.self, from: data)
 		let now = Date()
-		let filtered = sortedEvents.removingPastEvents(after: now)
+		let filtered = eventStore.removingPastEvents(after: now)
 		return filtered
 	}
 	
-	private func store(_ sortedEvents: EventStore) throws {
+	private func store(_ eventStore: EventStore) throws {
 		let encoder = JSONEncoder()
-		let data = try encoder.encode(sortedEvents)
+		let data = try encoder.encode(eventStore)
 		FileManager.default.createFile(atPath: EventFetcher.cacheURL.path, contents: data, attributes: nil)
 	}
 	

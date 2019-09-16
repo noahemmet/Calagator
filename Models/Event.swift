@@ -19,8 +19,8 @@ public struct Event: Codable, Hashable, Identifiable {
 	
 	static let dayDF: DateFormatter = {
 		let df = DateFormatter()
-		df.dateStyle = .long
-		df.doesRelativeDateFormatting = true
+		df.dateStyle = .short
+		df.doesRelativeDateFormatting = false
 		df.locale = Locale.current
 		return df
 	}()
@@ -50,10 +50,15 @@ public struct Event: Codable, Hashable, Identifiable {
 		let endTime = self.endTime
 		return startTime + (endTime.isEmpty ? "" : " — " + endTime)		
 	}
+  
+  
+  public var dateDisplay: String {
+    let dateDisplay = Event.dayDF.string(from: start)
+    return dateDisplay
+  }
 	
 	public var dateTimeDisplay: String {
-		let dateDisplay = Event.dayDF.string(from: start)
-		return dateDisplay + "\n" + totalTime		
+		return dateDisplay + "\n" + totalTime
 	}
 	
 	public var tags: [Tag]

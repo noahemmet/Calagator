@@ -4,6 +4,8 @@ import Models
 public struct EventsView : View {
   public var eventStore: EventStore
   @State private var sortMethod: EventStore.SortMethod = .byDay
+  private var showDate: Bool { sortMethod == .byPublished }
+  private var datePrefix: String { showDate ? "Added " : "" }
   
   public var body: some View {
     List {
@@ -16,10 +18,10 @@ public struct EventsView : View {
       }.pickerStyle(SegmentedPickerStyle())
       
       ForEach(eventStore.sortedEvents(for: sortMethod), id: \.id) { sortedEvents in
-        Section(header: Text(sortedEvents.dateString).font(.headline)) {
+        Section(header: Text(self.datePrefix + sortedEvents.dateString).font(.headline)) {
           ForEach(sortedEvents.events) { event in
             NavigationLink(destination: EventDetailView(event)) {
-              EventRow(event: event)
+              EventRow(event: event, showDate: self.showDate)
             }
           }
         }

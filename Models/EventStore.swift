@@ -31,7 +31,7 @@ public struct EventStore: Codable, Hashable {
 	
 	public func removingPastEvents(after date: Date = .init()) -> EventStore {
 		let filteredByDay = byDay.filter { $0.date >= date }
-		let filteredByPublished = byPublished.filter { $0.date >= date }
+		let filteredByPublished = byPublished.filter { $0.date <= date }
 		return EventStore(byDay: filteredByDay, byPublished: filteredByPublished)
 	}
 }
