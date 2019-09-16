@@ -24,8 +24,9 @@ public struct Field<Content, Trailing>: View where Content: View, Trailing: View
           .font(.footnote)
           .foregroundColor(.secondary)
         content()
+          .fixedSize(horizontal: false, vertical: true)
       }
-      .layoutPriority(1)
+      .layoutPriority(1) // Makes sure the content sizes correctly.
       Spacer()
       trailing?()
     }

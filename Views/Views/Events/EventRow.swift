@@ -15,7 +15,7 @@ public struct EventRow : View {
       VStack(alignment: .trailing, spacing: 1) {
         // Show optional day
         if showDate {
-          Text(event.dateDisplay)
+          Text(event.shortDateDisplay)
             .font(.footnote)
             .foregroundColor(.primary)
         }
