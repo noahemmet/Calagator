@@ -65,7 +65,7 @@ extension Venue: Codable {
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.id = try container.decode(Int.self, forKey: .id)
-		self.pageURL = URL(string: "http://calagator.org/events/\(id)")!
+		self.pageURL = URL(string: "http://calagator.org/venues/\(id)")!
 		self.name = try container.decode(String.self, forKey: .name)
 		self.venueDescription = try container.decodeIfPresent(String.self, forKey: .venueDescription)
 		
@@ -81,8 +81,7 @@ extension Venue: Codable {
 				let postalCode = try container.decodeIfPresent(String.self, forKey: .postalCode) ?? ""
 				let country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
 				self.address = try Address(street: street, locality: locality, region: region, postalCode: postalCode, country: country, googleMapsURL: nil)
-			} catch {
-			}
+			} catch { }
 		}
 	}
 	
