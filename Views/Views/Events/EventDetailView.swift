@@ -40,7 +40,7 @@ public struct EventDetailView : View {
         // Event location
         if event.venue?.address != nil {
           NavigationLink(destination: VenueDetailView(venue: event.venue!), isActive: $presentVenue) {
-            Field(header: "Where", text: event.venue?.addressDisplay, trailing: {
+            Field(header: "Where", headerColor: .accentColor, text: event.venue?.addressDisplay, trailing: {
               Button(action: { self.showMapMenu = true }) {
                 Image(systemSymbol: .arrowUpRightDiamond)
               }
@@ -56,6 +56,12 @@ public struct EventDetailView : View {
         
         // Event description
         Field(header: "What", text: event.eventDescription)
+        
+//        LabelView(html: event.eventHTML ?? "", fallback: event.eventDescription ?? "")
+//          .fixedSize(horizontal: true, vertical: true)
+//        Text(event.eventHTML ?? "")
+//          .font(.body)
+//          .fixedSize(horizontal: false, vertical: true)
         
         // Links
         //			if self.event.links.isEmpty == false {
@@ -80,10 +86,6 @@ public struct EventDetailView : View {
           Image(systemSymbol: .safari)
         })
       }
-      //			LabelView(html: event.eventHTML ?? "")
-      //			Text(event.eventHTML ?? "")
-      //				.font(.body)
-      //				.lineLimit(nil)
     )
       .sheet(item: $showInSafari,
              content: { link in
@@ -91,11 +93,13 @@ public struct EventDetailView : View {
       })
       .actionSheet(isPresented: $showMapMenu) {
         ActionSheet(title: Text(event.venue?.addressDisplay ?? ""), message: nil, buttons: [
-          .default(Text("Show in Maps"), action: { MapUtility.launchMaps(for: self.event.venue!.addressDisplay) }),
+          .default(Text("Open in Maps"), action: { MapUtility.launchMaps(for: self.event.venue!.addressDisplay) }),
+//          .default(Text("Venue Details"), action: { self.showMapMenu = true }),
           .cancel(Text("Cancel"))
         ])
     }
   }
+  
   private func addOrRemoveCalendar() {
     // Add/Remove from calendar
     let calendarManager = CalendarManager()

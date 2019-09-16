@@ -2,17 +2,20 @@ import SwiftUI
 
 public struct Field<Content, Trailing>: View where Content: View, Trailing: View {
   public let header: String
+  private let headerColor: Color
   private let content: () -> Content
   private let trailing: (() -> Trailing)?
   
-  public init(header: String, @ViewBuilder trailing: @escaping () -> Trailing, @ViewBuilder content: @escaping () -> Content) {
+  public init(header: String, headerColor: Color = .secondary, @ViewBuilder trailing: @escaping () -> Trailing, @ViewBuilder content: @escaping () -> Content) {
     self.header = header
+    self.headerColor = headerColor
     self.content = content
     self.trailing = trailing
   }
   
-  public init(header: String, @ViewBuilder content: @escaping () -> Content) {
+  public init(header: String, headerColor: Color = .secondary, @ViewBuilder content: @escaping () -> Content) {
     self.header = header
+    self.headerColor = headerColor
     self.content = content
     self.trailing = nil
   }
@@ -22,7 +25,7 @@ public struct Field<Content, Trailing>: View where Content: View, Trailing: View
       VStack(alignment: .leading, spacing: 2) {
         Text(header)
           .font(.footnote)
-          .foregroundColor(.secondary)
+          .foregroundColor(headerColor)
         content()
           .fixedSize(horizontal: false, vertical: true)
       }
@@ -36,8 +39,8 @@ public struct Field<Content, Trailing>: View where Content: View, Trailing: View
 // TODO: I think there's a way to do this while constrained to a ViewModifier
 extension Field where Content == AnyView {
   
-  public init(header: String, text: String?, @ViewBuilder trailing: @escaping () -> Trailing) {
-    self.init(header: header, trailing: trailing) {
+  public init(header: String, headerColor: Color = .secondary, text: String?, @ViewBuilder trailing: @escaping () -> Trailing) {
+    self.init(header: header, headerColor: headerColor, trailing: trailing) {
       AnyView(
         Text(text ?? "")
           .font(.body)
@@ -49,8 +52,8 @@ extension Field where Content == AnyView {
 }
 
 extension Field where Content == AnyView, Trailing == EmptyView {
-  public init(header: String, text: String?) {
-    self.init(header: header) {
+  public init(header: String, headerColor: Color = .secondary, text: String?) {
+    self.init(header: header, headerColor: headerColor) {
       AnyView(
         Text(text ?? "")
           .font(.body)
