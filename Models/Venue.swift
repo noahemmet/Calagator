@@ -41,7 +41,10 @@ public struct Venue: Hashable, Identifiable {
 		let location = try element.select("div.location").first.unwrap(orThrow: "No location found")
 		let name = try location.select("span.fn").text()
 		let address = try Address(htmlElement: location)
-		self.init(id: 0, name: name, description: "", address: address)
+    let venueLink = try location.getElementsByClass("url").attr("href")
+    let venueIDString = venueLink.replacingOccurrences(of: "/venues/", with: "")
+    let venueID = try Int(venueIDString).unwrap()
+		self.init(id: venueID, name: name, description: "", address: address)
 	}
 }
 

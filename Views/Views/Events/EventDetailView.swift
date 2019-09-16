@@ -7,6 +7,7 @@ public struct EventDetailView : View {
   public var event: Event
   
   @State private var showInSafari: Link?
+  @State private var presentVenue: Bool = false
   @State private var showMapMenu: Bool = false
   
   public init(_ event: Event) {
@@ -38,9 +39,11 @@ public struct EventDetailView : View {
         
         // Event location
         if event.venue?.address != nil {
-          Button(action: { self.showMapMenu = true }) {
+          NavigationLink(destination: VenueDetailView(venue: event.venue!), isActive: $presentVenue) {
             Field(header: "Where", text: event.venue?.addressDisplay, trailing: {
-              Image(systemSymbol: .arrowUpRightDiamond)
+              Button(action: { self.showMapMenu = true }) {
+                Image(systemSymbol: .arrowUpRightDiamond)
+              }
             })
           }
           MapView(address: event.venue?.address?.shortDisplay)
@@ -87,12 +90,11 @@ public struct EventDetailView : View {
       })
       .actionSheet(isPresented: $showMapMenu) {
         ActionSheet(title: Text(event.venue?.addressDisplay ?? ""), message: nil, buttons: [
-          .default(Text("Show in Maps"), action: { self.launchMaps(for: self.event.venue!.addressDisplay)}),
+          .default(Text("Show in Maps"), action: { MapUtility.launchMaps(for: self.event.venue!.addressDisplay) }),
           .cancel(Text("Cancel"))
         ])
     }
   }
-  
   private func addOrRemoveCalendar() {
     // Add/Remove from calendar
     let calendarManager = CalendarManager()
@@ -104,18 +106,6 @@ public struct EventDetailView : View {
       calendarManager.removeEvent(self.event) { error in
         print(error as Any)
       }
-    }
-  }
-  
-  private func launchMaps(for address: String) {
-    let geocoder = CLGeocoder()
-    geocoder.geocodeAddressString(address) {
-      (placemarks, error) in
-      guard error == nil, let placemark = placemarks?.first else {
-        return
-      }
-      let item = MKMapItem(placemark: .init(placemark: placemark))
-      item.openInMaps(launchOptions: nil)
     }
   }
 }
