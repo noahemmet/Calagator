@@ -49,6 +49,7 @@ public struct EventDetailView : View {
           MapView(address: event.venue?.address?.shortDisplay)
             .frame(height: 240)
             .cornerRadius(8)
+            .disabled(true)
           
           Divider()
         }
