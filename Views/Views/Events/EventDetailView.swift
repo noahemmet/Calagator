@@ -9,6 +9,12 @@ public struct EventDetailView : View {
   @State private var showInSafari: Link?
   @State private var presentVenue: Bool = false
   @State private var showMapMenu: Bool = false
+  @State private var showCalendarAlert: Bool = false
+  
+  private let calendarManager = CalendarManager()
+  private var isEventInCalendar: Bool {
+    calendarManager.calendarEvent(for: event) != nil
+  }
   
   public init(_ event: Event) {
     self.event = event
@@ -25,14 +31,14 @@ public struct EventDetailView : View {
         Divider()
         
         // Time
-        Button(action: self.addOrRemoveCalendar) {
-          Field(header: "When", text: event.dateTimeDisplay, trailing: {
+        Field(header: "When", text: event.dateTimeDisplay) {
+          Button(action: { self.showCalendarAlert = true }) {
             if CalendarManager().calendarEvent(for: self.event) == nil {
               Image(systemSymbol: .calendarBadgePlus)
             } else {
               Image(systemSymbol: .calendarBadgeMinus)
             }
-          })
+          }
         }
         
         Divider()
@@ -40,11 +46,11 @@ public struct EventDetailView : View {
         // Event location
         if event.venue?.address != nil {
           NavigationLink(destination: VenueDetailView(venue: event.venue!), isActive: $presentVenue) {
-            Field(header: "Where", headerColor: .accentColor, text: event.venue?.addressDisplay, trailing: {
+            Field(header: "Where", headerColor: .accentColor, text: event.venue?.addressDisplay) {
               Button(action: { self.showMapMenu = true }) {
                 Image(systemSymbol: .arrowUpRightDiamond)
               }
-            })
+            }
           }
           MapView(address: event.venue?.address?.shortDisplay)
             .frame(height: 240)
@@ -98,17 +104,27 @@ public struct EventDetailView : View {
           .cancel(Text("Cancel"))
         ])
     }
+    .alert(isPresented: $showCalendarAlert) {
+      if isEventInCalendar {
+        return Alert(title: Text("Remove from Calendar"),
+                     primaryButton: .default(Text("Remove"), action: addOrRemoveCalendar ),
+                     secondaryButton: .cancel())
+      } else {
+        return Alert(title: Text("Add to Calendar"),
+                     primaryButton: .default(Text("Add"), action: addOrRemoveCalendar ),
+                     secondaryButton: .cancel())
+      }
+    }
   }
   
   private func addOrRemoveCalendar() {
     // Add/Remove from calendar
-    let calendarManager = CalendarManager()
-    if CalendarManager().calendarEvent(for: self.event) == nil {
-      calendarManager.addEvent(self.event) { error in
+    if isEventInCalendar {
+      calendarManager.removeEvent(self.event) { error in
         print(error as Any)
       }
     } else {
-      calendarManager.removeEvent(self.event) { error in
+      calendarManager.addEvent(self.event) { error in
         print(error as Any)
       }
     }

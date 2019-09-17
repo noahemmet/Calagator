@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8628798823303865004B49CC /* SortedEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628798723303865004B49CC /* SortedEvents.swift */; };
+		8628798B23304BF4004B49CC /* MapUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628798A23304BF4004B49CC /* MapUtility.swift */; };
 		864A2F8222B8C2B30024B2CD /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 864A2F8122B8C2B20024B2CD /* Data */; };
 		864A2F8622B8C5E10024B2CD /* EventFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2F8522B8C5E10024B2CD /* EventFetcher.swift */; };
 		864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2F8722B8C6AA0024B2CD /* ViewState.swift */; };
@@ -223,6 +224,7 @@
 
 /* Begin PBXFileReference section */
 		8628798723303865004B49CC /* SortedEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedEvents.swift; sourceTree = "<group>"; };
+		8628798A23304BF4004B49CC /* MapUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUtility.swift; sourceTree = "<group>"; };
 		864A2F8122B8C2B20024B2CD /* Data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data; sourceTree = SOURCE_ROOT; };
 		864A2F8522B8C5E10024B2CD /* EventFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFetcher.swift; sourceTree = "<group>"; };
 		864A2F8722B8C6AA0024B2CD /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
@@ -376,6 +378,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8628798923304BE6004B49CC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8628798A23304BF4004B49CC /* MapUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		864A2F8322B8C5B00024B2CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +601,7 @@
 		86C027C622B8ADE700F06236 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8628798923304BE6004B49CC /* Utilities */,
 				864A2F8422B8C5B70024B2CD /* Fetchers */,
 				864A2FCA22B8F8830024B2CD /* UIKit */,
 				864A2F8322B8C5B00024B2CD /* Views */,
@@ -1052,6 +1063,7 @@
 			files = (
 				86978F2123161662007E8C47 /* VenueRow.swift in Sources */,
 				864A2F8622B8C5E10024B2CD /* EventFetcher.swift in Sources */,
+				8628798B23304BF4004B49CC /* MapUtility.swift in Sources */,
 				864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */,
 				86978F182315FC33007E8C47 /* SelectedView.swift in Sources */,
 				86C027E322B8ADFB00F06236 /* MainTabView.swift in Sources */,
