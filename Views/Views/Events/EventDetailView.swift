@@ -12,12 +12,11 @@ public struct EventDetailView : View {
   @State private var showCalendarAlert: Bool = false
   
   private let calendarManager = CalendarManager()
-  private var isEventInCalendar: Bool {
-    calendarManager.calendarEvent(for: event) != nil
-  }
+  @State private var isEventInCalendar: Bool
   
   public init(_ event: Event) {
     self.event = event
+    _isEventInCalendar = .init(initialValue: calendarManager.calendarEvent(for: event) != nil)
   }
   
   public var body: some View {
@@ -37,6 +36,7 @@ public struct EventDetailView : View {
               Image(systemSymbol: .calendarBadgePlus)
             } else {
               Image(systemSymbol: .calendarBadgeMinus)
+                .accentColor(.red)
             }
           }
         }
@@ -107,7 +107,7 @@ public struct EventDetailView : View {
     .alert(isPresented: $showCalendarAlert) {
       if isEventInCalendar {
         return Alert(title: Text("Remove from Calendar"),
-                     primaryButton: .default(Text("Remove"), action: addOrRemoveCalendar ),
+                     primaryButton: .default(Text("Remove"), action: addOrRemoveCalendar),
                      secondaryButton: .cancel())
       } else {
         return Alert(title: Text("Add to Calendar"),
@@ -119,13 +119,22 @@ public struct EventDetailView : View {
   
   private func addOrRemoveCalendar() {
     // Add/Remove from calendar
+    // We set `isEventInCalendar` manually to avoid EventKit/Combine messiness.
     if isEventInCalendar {
       calendarManager.removeEvent(self.event) { error in
-        print(error as Any)
+        guard error == nil else {
+          print(error as Any)
+          return
+        }
+        self.isEventInCalendar = false
       }
     } else {
       calendarManager.addEvent(self.event) { error in
-        print(error as Any)
+        guard error == nil else {
+          print(error as Any)
+          return
+        }
+        self.isEventInCalendar = true
       }
     }
   }
