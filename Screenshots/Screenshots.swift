@@ -8,7 +8,9 @@
 
 import XCTest
 
-// ~/.fastlane/bin/fastlane snapshot
+/*
+~/.fastlane/bin/fastlane snapshot
+*/
 
 class Screenshots: XCTestCase {
 	
@@ -28,6 +30,8 @@ class Screenshots: XCTestCase {
 		// UI tests must launch the application that they test.
 		let app = XCUIApplication()
 		app.launch()
+		
+		snapshot("01LoginScreen")
 		
 	}
 }

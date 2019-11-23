@@ -15,6 +15,8 @@
 
 default_platform(:ios)
 
+fastlane run spm
+
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do
@@ -22,4 +24,11 @@ platform :ios do
     build_app(scheme: "Calagator")
     upload_to_app_store
   end
+  
+  desc "Capture and upload screenshots"
+  lane :screenshots do
+    capture_screenshots
+    upload_to_app_store
+  end
 end
+
