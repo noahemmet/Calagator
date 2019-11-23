@@ -31,12 +31,12 @@ public struct Link: Codable, Hashable, Identifiable {
 	/// Excludes .ics links and page links, because we'll represent those with custom UI.
 	private static func excludeLink(_ href: String) -> Bool {
 		return false
-		let exclude =
-			href.hasSuffix(".ics") ||
-			href.hasPrefix("http://calagator.org/events/")
-		if !exclude {
-			print(href)
-		}
-		return exclude
+//		let exclude =
+//			href.hasSuffix(".ics") ||
+//			href.hasPrefix("http://calagator.org/events/")
+//		if !exclude {
+//			print(href)
+//		}
+//		return exclude
 	}
 }
