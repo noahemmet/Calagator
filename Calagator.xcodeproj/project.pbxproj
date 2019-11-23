@@ -19,7 +19,6 @@
 		864A2FA222B8DEEB0024B2CD /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; };
 		864A2FA922B8DEEB0024B2CD /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FA822B8DEEB0024B2CD /* CommonTests.swift */; };
 		864A2FAB22B8DEEB0024B2CD /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 864A2F9B22B8DEEA0024B2CD /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		864A2FAE22B8DEEB0024B2CD /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; };
 		864A2FB622B8DEF10024B2CD /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; };
 		864A2FBB22B8DEF60024B2CD /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; };
 		864A2FC022B8DF060024B2CD /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A2FBF22B8DF060024B2CD /* Optional+Extensions.swift */; };
@@ -36,7 +35,6 @@
 		864EAE1922B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
 		864EAE2022B8B36800903CC5 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE1F22B8B36800903CC5 /* ModelsTests.swift */; };
 		864EAE2222B8B36800903CC5 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 864EAE1222B8B36800903CC5 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		864EAE2522B8B36800903CC5 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
 		864EAE2F22B8B5AB00903CC5 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864EAE2E22B8B5AB00903CC5 /* FeedKit */; };
 		864EAE3122B8B70400903CC5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3022B8B70400903CC5 /* Event.swift */; };
 		864EAE3322B8B78000903CC5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EAE3222B8B78000903CC5 /* Tag.swift */; };
@@ -52,6 +50,12 @@
 		86611D4022B9D97900D4D2FD /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86611D3F22B9D97900D4D2FD /* CalendarManager.swift */; };
 		86752203232B05970032561C /* EventsByPublished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86752202232B05970032561C /* EventsByPublished.swift */; };
 		86752205232B071C0032561C /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86752204232B071C0032561C /* EventStore.swift */; };
+		867CBAFE2389CBC50029288F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; };
+		867CBAFF2389CBC50029288F /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864A2F9922B8DEEA0024B2CD /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		867CBB002389CBC60029288F /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; };
+		867CBB012389CBC60029288F /* Models.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 864EAE1022B8B36800903CC5 /* Models.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		867CBB022389CBC80029288F /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; };
+		867CBB032389CBC80029288F /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86978F162315E67F007E8C47 /* ViewStateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F152315E67F007E8C47 /* ViewStateLoader.swift */; };
 		86978F182315FC33007E8C47 /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F172315FC33007E8C47 /* SelectedView.swift */; };
 		86978F1A23160A88007E8C47 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F1923160A88007E8C47 /* Field.swift */; };
@@ -69,7 +73,6 @@
 		86C027CE22B8ADE700F06236 /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; };
 		86C027D522B8ADE700F06236 /* ViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C027D422B8ADE700F06236 /* ViewsTests.swift */; };
 		86C027D722B8ADE700F06236 /* Views.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C027C722B8ADE700F06236 /* Views.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C027C522B8ADE700F06236 /* Views.framework */; };
 		86C027E322B8ADFB00F06236 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0279122B8AB3500F06236 /* MainTabView.swift */; };
 		86C5130F2315D7BC00B97991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 86C5130E2315D7BC00B97991 /* SFSafeSymbols */; };
 		86C513112315D80E00B97991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 86C513102315D80E00B97991 /* SFSafeSymbols */; };
@@ -204,6 +207,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				867CBB012389CBC60029288F /* Models.framework in Embed Frameworks */,
+				867CBAFF2389CBC50029288F /* Common.framework in Embed Frameworks */,
+				867CBB032389CBC80029288F /* Views.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,10 +328,10 @@
 			files = (
 				86C5130F2315D7BC00B97991 /* SFSafeSymbols in Frameworks */,
 				864EAE2F22B8B5AB00903CC5 /* FeedKit in Frameworks */,
+				867CBB002389CBC60029288F /* Models.framework in Frameworks */,
 				864F20DD22BA020E005FF206 /* SwiftRichString in Frameworks */,
-				864A2FAE22B8DEEB0024B2CD /* Common.framework in Frameworks */,
-				864EAE2522B8B36800903CC5 /* Models.framework in Frameworks */,
-				86C027DA22B8ADE700F06236 /* Views.framework in Frameworks */,
+				867CBAFE2389CBC50029288F /* Common.framework in Frameworks */,
+				867CBB022389CBC80029288F /* Views.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,6 +1491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Calagator/Calagator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Calagator/Preview\\ Content";
 				DEVELOPMENT_TEAM = 73QWS7BE59;
@@ -1508,6 +1515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Calagator/Calagator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Calagator/Preview\\ Content";
 				DEVELOPMENT_TEAM = 73QWS7BE59;
