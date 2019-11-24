@@ -14,6 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	
 	var window: UIWindow?
 	
+	var device: Device?
+	
 	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -22,8 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		
 		// Use a UIHostingController as window root view controller
 		if let windowScene = scene as? UIWindowScene {
+			let device = Device(isLandscape: windowScene.interfaceOrientation.isLandscape)
+			self.device = device
 			let window = UIWindow(windowScene: windowScene)
 			let mainTabbedView = MainTabView()
+			.environmentObject(device)
+//				.environment(\.device, device)
 			window.rootViewController = UIHostingController(rootView: mainTabbedView)
 			window.tintColor = AppStyle.accentUI
 			self.window = window
@@ -59,6 +65,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// to restore the scene back to its current state.
 	}
 	
-	
+	func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
+		device?.isLandscape = windowScene.interfaceOrientation.isLandscape
+	}
 }
 

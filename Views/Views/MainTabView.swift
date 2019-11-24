@@ -13,6 +13,9 @@ public struct MainTabView : View {
 	public init() { }
 	
 	@State private var selection = Tab.events
+//	@Environment(\.device) private var device: Device
+	@EnvironmentObject var device: Device
+	
 	let eventsLoadingView = EventsLoadingView()
 	let venuesLoadingView = VenuesLoadingView()
 	
@@ -24,7 +27,12 @@ public struct MainTabView : View {
 					.onAppear {
 						self.eventsLoadingView.eventFetcher.fetch(useCache: !isFastlaneSnapshot)
 				}
+				Text("Calagator Events")
+					.font(.title)
+					.bold()
+					.foregroundColor(.secondary)
 			}
+			.padding(device.isLandscape ? 0 : 0.5) // Show iPad side bar in portrait and landscape
 			.tag(Tab.events)
 			.tabItem {
 				Image(systemSymbol: .calendar)
@@ -37,7 +45,12 @@ public struct MainTabView : View {
 					.onAppear {
 						self.venuesLoadingView.venueFetcher.fetch(useCache: !isFastlaneSnapshot)
 				}
+				Text("Local Venues")
+					.font(.title)
+					.bold()
+					.foregroundColor(.secondary)
 			}
+			.padding(device.isLandscape ? 0 : 0.5) // Show iPad side bar in portrait and landscape
 			.tag(Tab.venue)
 			.tabItem {
 				Image(systemSymbol: .map)
