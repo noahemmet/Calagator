@@ -23,7 +23,7 @@ platform :ios do
     upload_to_app_store
   end
   
-  desc "Capture and upload screenshots"
+  desc "Upload metadata"
   lane :metadata do
     deliver
   end
@@ -37,3 +37,17 @@ platform :ios do
   
 end
 
+platform :mac do
+
+  desc "Upload metadata"
+  lane :metadata do
+    deliver(platform: "osx", app_identifier: "maccatalyst.sticks.Calagator", skip_screenshots: true)
+  end
+  
+  desc "Capture and upload screenshots"
+  lane :release do
+    increment_build_number(xcodeproj: "Calagator.xcodeproj")
+    build_app(scheme: "Calagator")
+    upload_to_app_store
+  end
+end

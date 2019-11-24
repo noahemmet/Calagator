@@ -25,12 +25,26 @@ Capture and upload screenshots
 ```
 fastlane ios metadata
 ```
-Capture and upload screenshots
+Upload metadata
 ### ios release
 ```
 fastlane ios release
 ```
 Push a new release build to the App Store
+
+----
+
+## Mac
+### mac metadata
+```
+fastlane mac metadata
+```
+Upload metadata
+### mac release
+```
+fastlane mac release
+```
+Capture and upload screenshots
 
 ----
 
