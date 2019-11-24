@@ -22,7 +22,7 @@ public struct MainTabView : View {
 			NavigationView {
 				eventsLoadingView
 					.onAppear {
-						self.eventsLoadingView.eventFetcher.fetch(useCache: true)
+						self.eventsLoadingView.eventFetcher.fetch(useCache: !isFastlaneSnapshot)
 				}
 			}
 			.tag(Tab.events)
@@ -35,7 +35,7 @@ public struct MainTabView : View {
 			NavigationView {
 				venuesLoadingView
 					.onAppear {
-						self.venuesLoadingView.venueFetcher.fetch(useCache: true)
+						self.venuesLoadingView.venueFetcher.fetch(useCache: !isFastlaneSnapshot)
 				}
 			}
 			.tag(Tab.venue)

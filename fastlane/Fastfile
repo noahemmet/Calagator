@@ -15,8 +15,6 @@
 
 default_platform(:ios)
 
-fastlane run spm
-
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do

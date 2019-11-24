@@ -21,3 +21,7 @@ An iOS client for http://calagator.org. Requires iOS 13.
 # Screenshots
 
 ![Simulator Screen Shot - iPad Pro (9 7-inch)](https://user-images.githubusercontent.com/1952578/63822358-ede87f00-c904-11e9-8f36-4fc019191481.png)
+
+# Privacy Policy
+
+This app does not track your doings and goings-about.

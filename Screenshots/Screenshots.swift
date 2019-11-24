@@ -9,7 +9,8 @@
 import XCTest
 
 /*
-~/.fastlane/bin/fastlane snapshot
+To run screenshots:
+> fastlane snapshot
 */
 
 class Screenshots: XCTestCase {
@@ -18,20 +19,26 @@ class Screenshots: XCTestCase {
 		continueAfterFailure = false
 		
 		let app = XCUIApplication()
-		setupSnapshot(app)
+    setupSnapshot(app, waitForAnimations: true)
 		app.launch()
 	}
 	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-	}
+	override func tearDown() { }
 	
 	func testScreenshots() {
 		// UI tests must launch the application that they test.
+    
 		let app = XCUIApplication()
-		app.launch()
 		
-		snapshot("01LoginScreen")
-		
+		snapshot("01-Events")
+    
+    app.tables.buttons.element(boundBy: 1).tap()
+    
+    snapshot("02-Event Detail")
+    
+    let whereButton = app.scrollViews.buttons.element(boundBy: 1)
+    whereButton.tap()
+    
+    snapshot("03-Venue Detail")
 	}
 }
