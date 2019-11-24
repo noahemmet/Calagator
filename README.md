@@ -1,5 +1,7 @@
 # Calagator
-An open-source iOS client for http://calagator.org. 
+An open-source iOS client for [calagator.org](http://calagator.org), a tech calendar for Portland, Oregon.
+
+Primarily a way for me to experiment with [SwiftUI](https://developer.apple.com/xcode/swiftui/) and [Combine](https://developer.apple.com/documentation/combine).
 
 Requires iOS 13.
 
