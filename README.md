@@ -1,10 +1,12 @@
 # Calagator
-An iOS client for http://calagator.org. Requires iOS 13.
+An open-source iOS client for http://calagator.org. 
+
+Requires iOS 13.
 
 # Installation
-- [Download Xcode 11](https://developer.apple.com/download/) (and iOS 13 if you want to build to a device).
-- Open the `Calagator.xcodeproj`, and select File > Swift Packages > Update to Latest Package Versions
-- Run the app.
+- [Download Xcode 11](https://developer.apple.com/download/).
+- Open the `Calagator.xcodeproj`
+- If Swift Package Manager doesn't automatically update the project, select `File` > `Swift Packages` > `Update to Latest Package Versions`.
 
 # Features
 - iPad and iPhone support.
