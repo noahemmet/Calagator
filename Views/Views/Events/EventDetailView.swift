@@ -47,7 +47,13 @@ public struct EventDetailView : View {
         if event.venue?.address != nil {
           NavigationLink(destination: VenueDetailView(venue: event.venue!), isActive: $presentVenue) {
             Field(header: "Where", headerColor: .accentColor, text: event.venue?.addressDisplay) {
-              Button(action: { self.showMapMenu = true }) {
+              Button(action: {
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                  MapUtility.launchMaps(for: self.event.venue!.addressDisplay)
+                } else {
+                  self.showMapMenu = true
+                }
+              }) {
                 Image(systemSymbol: .arrowUpRightDiamond)
               }
             }
@@ -97,13 +103,17 @@ public struct EventDetailView : View {
              content: { link in
               SafariView(url: link.url)
       })
-      .actionSheet(isPresented: $showMapMenu) {
-        ActionSheet(title: Text(event.venue?.addressDisplay ?? ""), message: nil, buttons: [
-          .default(Text("Open in Maps"), action: { MapUtility.launchMaps(for: self.event.venue!.addressDisplay) }),
-//          .default(Text("Venue Details"), action: { self.showMapMenu = true }),
-          .cancel(Text("Cancel"))
-        ])
-    }
+      
+      .iPhoneActionSheet(
+        isPresented: $showMapMenu,
+        title: Text(self.event.venue!.addressDisplay),
+        message: nil,
+        buttons: [
+          .default(Text("Open in Maps")) {
+            MapUtility.launchMaps(for: self.event.venue!.addressDisplay)
+          },
+          .cancel()
+      ])
     .alert(isPresented: $showCalendarAlert) {
       if isEventInCalendar {
         return Alert(title: Text("Remove from Calendar"),

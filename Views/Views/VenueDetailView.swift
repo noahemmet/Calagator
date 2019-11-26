@@ -43,14 +43,17 @@ public struct VenueDetailView: View {
         }, label: {
           Image(systemSymbol: .safari)
         })
-    })
-      
-      .actionSheet(isPresented: $showMapMenu) {
-        ActionSheet(title: Text(self.venue.addressDisplay), message: nil, buttons: [
-          .default(Text("Show in Maps"), action: { MapUtility.launchMaps(for: self.venue.addressDisplay) }),
-          .cancel(Text("Cancel"))
-        ])
-    }
+      })
+      .iPhoneActionSheet(
+        isPresented: $showMapMenu,
+        title: Text(self.venue.addressDisplay),
+        message: nil,
+        buttons: [
+          .default(Text("Open in Maps")) {
+            MapUtility.launchMaps(for: self.venue.addressDisplay)
+          },
+          .cancel()
+      ])
       
     .sheet(item: $showInSafari,
            content: { link in

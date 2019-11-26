@@ -65,6 +65,7 @@
 		86978F2123161662007E8C47 /* VenueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F2023161662007E8C47 /* VenueRow.swift */; };
 		86978F23231617B0007E8C47 /* VenueFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F22231617B0007E8C47 /* VenueFetcher.swift */; };
 		86978F252316188D007E8C47 /* VenuesLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86978F242316188D007E8C47 /* VenuesLoadingView.swift */; };
+		86A23935238CDB3E001FD3FE /* View+iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A23934238CDB3E001FD3FE /* View+iPad.swift */; };
 		86C0278E22B8AB3500F06236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278D22B8AB3500F06236 /* AppDelegate.swift */; };
 		86C0279022B8AB3500F06236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0278F22B8AB3500F06236 /* SceneDelegate.swift */; };
 		86C0279422B8AB3600F06236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0279322B8AB3600F06236 /* Assets.xcassets */; };
@@ -280,6 +281,7 @@
 		86978F2023161662007E8C47 /* VenueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueRow.swift; sourceTree = "<group>"; };
 		86978F22231617B0007E8C47 /* VenueFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueFetcher.swift; sourceTree = "<group>"; };
 		86978F242316188D007E8C47 /* VenuesLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesLoadingView.swift; sourceTree = "<group>"; };
+		86A23934238CDB3E001FD3FE /* View+iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+iPad.swift"; sourceTree = "<group>"; };
 		86C0278A22B8AB3500F06236 /* Calagator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calagator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C0278D22B8AB3500F06236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C0278F22B8AB3500F06236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -546,6 +548,14 @@
 			name = Venues;
 			sourceTree = "<group>";
 		};
+		86A23933238CDB3E001FD3FE /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				86A23934238CDB3E001FD3FE /* View+iPad.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		86C0278122B8AB3400F06236 = {
 			isa = PBXGroup;
 			children = (
@@ -630,6 +640,7 @@
 				8628798923304BE6004B49CC /* Utilities */,
 				864A2F8422B8C5B70024B2CD /* Fetchers */,
 				864A2FCA22B8F8830024B2CD /* UIKit */,
+				86A23933238CDB3E001FD3FE /* SwiftUI */,
 				864A2F8322B8C5B00024B2CD /* Views */,
 				86C027C722B8ADE700F06236 /* Views.h */,
 				86C027C822B8ADE700F06236 /* Info.plist */,
@@ -1133,6 +1144,7 @@
 				864A2F8822B8C6AA0024B2CD /* ViewState.swift in Sources */,
 				86978F182315FC33007E8C47 /* SelectedView.swift in Sources */,
 				86C027E322B8ADFB00F06236 /* MainTabView.swift in Sources */,
+				86A23935238CDB3E001FD3FE /* View+iPad.swift in Sources */,
 				86978F1F231614D2007E8C47 /* VenueDetailView.swift in Sources */,
 				86978F162315E67F007E8C47 /* ViewStateLoader.swift in Sources */,
 				864EA4BB22BB16620060C301 /* AppStyle.swift in Sources */,
@@ -1579,7 +1591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Calagator/Calagator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Calagator/Preview\\ Content";
 				DEVELOPMENT_TEAM = 73QWS7BE59;
@@ -1603,7 +1615,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Calagator/Calagator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "Calagator/Preview\\ Content";
 				DEVELOPMENT_TEAM = 73QWS7BE59;
